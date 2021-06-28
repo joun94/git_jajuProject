@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="saleboardSQL">
+
+	<!-- 글쓰기 -->
+
+	<insert parameterType="saleboard" id="saleboardWrite">
+			insert into sale_board
+			values
+			(sale_seq_sale_board.nextval,#{sale_state},#{sale_subject},${sale_price},#{sale_nego},#{sale_category},#{sale_condition},#{sale_direct},#{sale_delivery},#{sale_onlineTran},#{sale_content},#{member_id},${sale_hit},sysdate,'on',#{sale_buyer},#{sale_image1},#{sale_image2},#{sale_image3},#{sale_image4},#{sale_image5},#{sale_image6},#{sale_image7},#{sale_image8},#{sale_image9},#{sale_image10})
+	</insert>
+	
+	<select id="getSaleboardList" resultType="saleboard" parameterType="java.util.Map">
+		<if test='sortinSelect != "low_sale_price" '>
+			select * from (
+	 		select rownum rn ,tt.*from(
+	 		select * from sale_board order by ${sortinSelect} desc)tt)
+	 		<![CDATA[where rn >= ${startNum} and rn <=${endNum}]]>
+ 		</if>
+ 		<if test='sortinSelect == "low_sale_price" '>
+			select * from (
+	 		select rownum rn ,tt.*from(
+	 		select * from sale_board order by sale_price asc)tt)
+	 		<![CDATA[where rn >= ${startNum} and rn <=${endNum}]]>
+ 		</if>
+	</select>
+	
+	<select id="getSaleboardView" parameterType="int" resultType="saleboard">
+		select * from sale_board join jajumember using(member_id) where sale_seq = #{sale_seq}
+	</select>
+	
+	<select id="getTotal" resultType="int">
+		select count(*) as count from sale_board where sale_hide != 'off'
+	</select>
+	
+	<select id="getSearchSaleboardList" resultType="saleboard" parameterType="java.util.Map">
+		<if test='sortinSelect != "low_sale_price" '>
+			<if test='sale_category == "*" '>
+				select * from (
+		 		select rownum rn ,tt.*from(
+		 		select * from sale_board where   sale_subject like '%'||#{searchText}||'%' order by ${sortinSelect} desc)tt)
+		 		<![CDATA[where rn >= ${startNum} and rn <= ${endNum}]]>
+		 	</if>
+			<if test='sale_category != "*" '>
+				select * from (
+		 		select rownum rn ,tt.*from(
+		 		select * from sale_board where   sale_category like #{sale_category} and sale_subject like '%'||#{searchText}||'%' order by ${sortinSelect} desc)tt)
+		 		<![CDATA[where rn >= ${startNum} and rn <= ${endNum}]]>
+		 	</if>
+		 </if>
+		 <if test='sortinSelect == "low_sale_price" '>
+			<if test='sale_category == "*" '>
+				select * from (
+		 		select rownum rn ,tt.*from(
+		 		select * from sale_board where    sale_subject like '%'||#{searchText}||'%' order by sale_price asc)tt)
+		 		<![CDATA[where rn >= ${startNum} and rn <= ${endNum}]]>
+		 	</if>
+			<if test='sale_category != "*" '>
+				select * from (
+		 		select rownum rn ,tt.*from(
+		 		select * from sale_board where   sale_category like #{sale_category} and sale_subject like '%'||#{searchText}||'%' order by sale_price asc)tt)
+		 		<![CDATA[where rn >= ${startNum} and rn <= ${endNum}]]>
+		 	</if>
+		 </if>
+	</select>
+	
+	<select id="getSearchTotal" resultType="int" parameterType="java.util.Map">
+		<if test='sale_category == "*" '>
+			select count(*) as count from sale_board where   sale_subject like '%'||#{searchText}||'%'
+		</if>
+		<if test='sale_category != "*" '>
+			select count(*) as count from sale_board where   sale_category like #{sale_category} and sale_subject like '%'||#{searchText}||'%'
+		</if>
+	</select>
+	
+	<!-- 글 수정 -->
+    <update id="saleboardModify" parameterType="saleboard">
+           <choose>
+             <when test="sale_image1 != ''">
+                update sale_board set
+                         sale_state=#{sale_state}, 
+                         sale_subject=#{sale_subject},
+                        sale_price=${sale_price}, 
+                        sale_nego=#{sale_nego},
+                        sale_category=#{sale_category},
+                         sale_condition=#{sale_condition},
+                        sale_direct=#{sale_direct},
+                         sale_delivery=#{sale_delivery},
+                          sale_onlineTran=#{sale_onlineTran}, 
+                          sale_content=#{sale_content},         
+                         sale_date=sysdate, 
+                         sale_hide=#{sale_hide},
+                           sale_buyer=#{sale_buyer}, 
+                        sale_image1=#{sale_image1}, 
+                        sale_image2=#{sale_image2},
+                         sale_image3=#{sale_image3}, 
+                         sale_image4=#{sale_image4},
+                          sale_image5=#{sale_image5}, 
+                          sale_image6=#{sale_image6},
+                           sale_image7=#{sale_image7}, 
+                           sale_image8=#{sale_image8},
+                           sale_image9=#{sale_image9}, 
+                           sale_image10=#{sale_image10}
+                     where sale_seq=#{sale_seq}
+             </when>
+             <when test="sale_image1 == ''">
+             update sale_board set
+                        sale_state=#{sale_state}, 
+                        sale_subject=#{sale_subject},
+                        sale_price=${sale_price}, 
+                        sale_nego=#{sale_nego},
+                        sale_category=#{sale_category}, 
+                        sale_condition=#{sale_condition},
+                        sale_direct=#{sale_direct},
+                         sale_delivery=#{sale_delivery},
+                          sale_onlineTran=#{sale_onlineTran}, 
+                          sale_content=#{sale_content},         
+                         sale_date=sysdate, 
+                         sale_hide=#{sale_hide}, 
+                         sale_buyer=#{sale_buyer}
+                  where sale_seq=#{sale_seq}
+             </when>
+         </choose>
+    </update>
+	 
+	 <!-- 삭제 -->
+	<delete id="saleboardDelete" parameterType="int">
+	 	delete sale_board where sale_seq=#{sale_seq}
+	</delete>
+	
+	
+	<!-- 댓글 -->
+	<insert id="writeSaleboardComment" parameterType="java.util.Map">
+		insert into sale_board_comment values(sale_board_comment_seq.nextval, ${sale_seq}, #{member_id}, #{comment_content}, sale_board_comment_seq.currval,0,0,0,sysdate)
+	</insert>
+	
+	<!-- 댓글 불러오기 -->
+	<select id="getSaleboardComment" parameterType="java.util.Map" resultType="saleboardComment">
+		select * from (
+ 		select rownum rn ,tt.*from(
+ 		select * from sale_board_comment where sale_seq = ${sale_seq} order by comment_ref desc, comment_step asc)tt)
+ 		<![CDATA[where rn >= ${startNum} and rn <=${endNum}]]>
+	</select>
+	
+	<select id="getCommentTotal" resultType="int" parameterType="Integer">
+		select count(*) as count from sale_board_comment where sale_seq = ${sale_seq}
+	</select>
+	
+	<insert id="writeReplySaleboardComment" parameterType="java.util.Map">
+		begin
+ 			update sale_board_comment set comment_step = comment_step + 1 where comment_ref = ${comment_ref} and comment_step > ${comment_step};
+ 			insert into sale_board_comment values(sale_board_comment_seq.nextval, ${sale_seq}, #{member_id}, #{comment_content}, ${comment_ref}, ${comment_lev}+1,${comment_step}+1,${comment_pseq},sysdate);			
+ 		end;
+	</insert>
+	
+	<!-- 댓글 1개 가져오기 -->
+	<select id="getSaleboardCommentOne" parameterType="Integer" resultType="saleboardComment">
+		select * from sale_board_comment where comment_seq = ${comment_pseq}
+	</select>
+	<!-- 댓글 수정하기 -->
+	<update id="commentModify" parameterType="java.util.Map">
+		update sale_board_comment set comment_content = #{comment_content}, logtime = sysdate where comment_seq = ${comment_seq}
+	</update>
+	
+	<!-- 댓글 삭제 -->
+	<delete id="commentDelete" parameterType="saleboardComment">
+		begin
+ 			update sale_board_comment set comment_content =  '[원글이 삭제된 답글]'||comment_content where comment_pseq = #{comment_seq};
+ 			delete sale_board_comment where comment_seq = #{comment_seq};
+ 		end;
+	</delete>
+	<!-- 조회수 증가 -->
+	<update id="upHit" parameterType="Integer">
+		update sale_board set sale_hit = sale_hit+1 where sale_seq = ${sale_seq}
+	</update>
+	
+	<!-- 로그인한 상태의 판매 리스트 불러오기 -->
+	<select id="getSaleboardListLogin" parameterType="java.util.Map" resultType="saleboard">
+		<if test='keywordSw.equals("1")'>
+			<if test='sortinSelect != "low_sale_price" '>
+				select * from (
+		 		select rownum rn ,tt.*from(
+		 		select * from sale_board join jajumember using(member_id) where  member_sigungu in (#{location1},#{location2},#{location3}) and sale_category in (#{keyword1},#{keyword2},#{keyword3},#{keyword4},#{keyword5}) order by ${sortinSelect} desc)tt)
+		 		<![CDATA[where rn >= ${startNum} and rn <=${endNum}]]>
+	 		</if>
+	 		<if test='sortinSelect == "low_sale_price" '>
+				select * from (
+		 		select rownum rn ,tt.*from(
+		 		select * from sale_board join jajumember using(member_id) where member_sigungu in (#{location1},#{location2},#{location3}) and sale_category in (#{keyword1},#{keyword2},#{keyword3},#{keyword4},#{keyword5}) order by sale_price asc)tt)
+		 		<![CDATA[where rn >= ${startNum} and rn <=${endNum}]]>
+	 		</if>
+		</if>
+		<if test='keywordSw.equals("0")'>
+			<if test='sortinSelect != "low_sale_price" '>
+				select * from (
+		 		select rownum rn ,tt.*from(
+		 		select * from sale_board join jajumember using(member_id) where  member_sigungu in (#{location1},#{location2},#{location3}) order by ${sortinSelect} desc)tt)
+		 		<![CDATA[where rn >= ${startNum} and rn <=${endNum}]]>
+	 		</if>
+	 		<if test='sortinSelect == "low_sale_price" '>
+				select * from (
+		 		select rownum rn ,tt.*from(
+		 		select * from sale_board join jajumember using(member_id) where   member_sigungu in (#{location1},#{location2},#{location3}) order by sale_price asc)tt)
+		 		<![CDATA[where rn >= ${startNum} and rn <=${endNum}]]>
+	 		</if>
+		</if>
+	</select>
+	
+   
+	<!-- 로그인 상태 리스트 토탈 가져오기 -->
+	<select id="getTotalLogin1" resultType="int" parameterType="java.util.Map">
+		<if test='keywordSw.equals("1")'>
+			select count(*) as count from sale_board join jajumember using(member_id) where   member_sigungu = #{location1} and sale_category in (#{keyword1},#{keyword2},#{keyword3},#{keyword4},#{keyword5})
+		</if>
+		<if test='keywordSw.equals("0")'>
+			select count(*) as count from sale_board join jajumember using(member_id) where   member_sigungu = #{location1}
+		</if>
+	</select>
+	<select id="getTotalLogin2" resultType="int" parameterType="java.util.Map">
+			<if test='keywordSw.equals("1")'>
+			select count(*) as count from sale_board join jajumember using(member_id) where   member_sigungu = #{location2} and sale_category in (#{keyword1},#{keyword2},#{keyword3},#{keyword4},#{keyword5})
+		</if>
+		<if test='keywordSw.equals("0")'>
+			select count(*) as count from sale_board join jajumember using(member_id) where   member_sigungu = #{location2}
+		</if>
+	</select>
+	<select id="getTotalLogin3" resultType="int" parameterType="java.util.Map">
+			<if test='keywordSw.equals("1")'>
+			select count(*) as count from sale_board join jajumember using(member_id) where   member_sigungu = #{location3} and sale_category in (#{keyword1},#{keyword2},#{keyword3},#{keyword4},#{keyword5})
+		</if>
+		<if test='keywordSw.equals("0")'>
+			select count(*) as count from sale_board join jajumember using(member_id) where   member_sigungu = #{location3}
+		</if>
+	</select>
+	<!-- 로그인 상태 검색 -->
+	<select id="getSearchSaleboardListLogin" resultType="saleboard" parameterType="java.util.Map">
+		<if test='sortinSelect != "low_sale_price" '>
+			<if test='sale_category == "*" '>
+				select * from (
+		 		select rownum rn ,tt.*from(
+		 		select * from sale_board join jajumember using(member_id) where   sale_subject like '%'||#{searchText}||'%' and member_sigungu in (#{location1},#{location2},#{location3}) order by ${sortinSelect} desc)tt)
+		 		<![CDATA[where rn >= ${startNum} and rn <= ${endNum}]]>
+		 	</if>
+			<if test='sale_category != "*" '>
+				select * from (
+		 		select rownum rn ,tt.*from(
+		 		select * from sale_board join jajumember using(member_id) where   sale_category like #{sale_category} and sale_subject like '%'||#{searchText}||'%' and member_sigungu in (#{location1},#{location2},#{location3}) order by ${sortinSelect} desc)tt)
+		 		<![CDATA[where rn >= ${startNum} and rn <= ${endNum}]]>
+		 	</if>
+		 </if>
+		 <if test='sortinSelect == "low_sale_price" '>
+			<if test='sale_category == "*" '>
+				select * from (
+		 		select rownum rn ,tt.*from(
+		 		select * from sale_board join jajumember using(member_id) where   sale_subject like '%'||#{searchText}||'%' and member_sigungu in (#{location1},#{location2},#{location3}) order by sale_price asc)tt)
+		 		<![CDATA[where rn >= ${startNum} and rn <= ${endNum}]]>
+		 	</if>
+			<if test='sale_category != "*" '>
+				select * from (
+		 		select rownum rn ,tt.*from(
+		 		select * from sale_board join jajumember using(member_id) where   sale_category like #{sale_category} and sale_subject like '%'||#{searchText}||'%' and member_sigungu in (#{location1},#{location2},#{location3}) order by sale_price asc)tt)
+		 		<![CDATA[where rn >= ${startNum} and rn <= ${endNum}]]>
+		 	</if>
+		 </if>
+	</select>
+	<!-- 로그인 검색 토탈 -->
+	<select id="getSearchTotalLogin1" resultType="int" parameterType="java.util.Map">
+	
+		<if test='sale_category == "*" '>
+			select count(*) as count from sale_board join jajumember using(member_id) where   member_sigungu = #{location1} and sale_subject like '%'||#{searchText}||'%'
+		</if>
+		<if test='sale_category != "*" '>
+			select count(*) as count from sale_board join jajumember using(member_id) where   member_sigungu = #{location1} and sale_category like #{sale_category} and sale_subject like '%'||#{searchText}||'%'
+		</if>
+		
+	</select>
+	<select id="getSearchTotalLogin2" resultType="int" parameterType="java.util.Map">
+	
+		<if test='sale_category == "*" '>
+			select count(*) as count from sale_board join jajumember using(member_id) where   member_sigungu = #{location2} and sale_subject like '%'||#{searchText}||'%'
+		</if>
+		<if test='sale_category != "*" '>
+			select count(*) as count from sale_board join jajumember using(member_id) where   member_sigungu = #{location2} and sale_category like #{sale_category} and sale_subject like '%'||#{searchText}||'%'
+		</if>
+		
+	</select>
+	<select id="getSearchTotalLogin3" resultType="int" parameterType="java.util.Map">
+	
+		<if test='sale_category == "*" '>
+			select count(*) as count from sale_board join jajumember using(member_id) where   member_sigungu = #{location3} and sale_subject like '%'||#{searchText}||'%'
+		</if>
+		<if test='sale_category != "*" '>
+			select count(*) as count from sale_board join jajumember using(member_id) where   member_sigungu = #{location3} and sale_category like #{sale_category} and sale_subject like '%'||#{searchText}||'%'
+		</if>
+		
+	</select>
+
+	<update id="saleStateModify" parameterType="java.util.Map">
+		update sale_board set sale_state=#{sale_state} where sale_seq=#{sale_seq}
+	</update>
+		
+	<!--message 발신자 목록 불러오기  -->
+	<select id="salebuyerFindMessage" parameterType="int" resultType="java.util.Map" >
+		select message_writer from message where sale_seq=#{sale_seq}
+	</select> 
+	
+	<!--comment 발신자 목록 불러오기  -->
+	<select id="salebuyerFindComment" parameterType="int" resultType="java.util.Map" >
+		select member_id from sale_board_comment where sale_seq=#{sale_seq}
+	</select> 
+	
+	<!--salebuyer값 입력  -->
+	<update id="salebuyerConfirmation" parameterType="java.util.Map" >
+		update sale_board set sale_buyer=#{sale_buyer} where sale_seq=#{sale_seq}
+	</update>
+		
+</mapper>

@@ -1,0 +1,90 @@
+@charset "UTF-8";
+
+@font-face {
+     font-family: 'S-CoreDream-4Regular';
+     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+}
+
+body {
+	font-family: 'S-CoreDream-4Regular';
+}
+/*인기매물*/
+#populerDiv {
+	width: 1200px;
+	height: 560px;
+	display: block;
+	margin: 0px auto;
+	
+}
+#populerSpan{
+	align-items: center;
+	align-content: center;
+	color: black;
+	font-size: 18pt;
+	width: 200px;
+	
+}
+h2 {
+    text-align: center;
+}
+div, th, td, li, dt, dd, p {
+    word-break: break-all;
+}
+#populerDiv img{
+	padding: 10px;
+	width: 249px;
+	height: 320px;
+}
+
+/*최근매물*/
+.list_goods .thumb_goods .thumb {
+    display: block;
+    margin: 0 auto;
+    background-position: 50% 50%;
+    background-size: cover;
+    transform: scale(1);
+    transition: all 0.3s ease-in-out;
+}
+.list_goods .thumb {
+    width: 249px;
+    height: 320px;
+}
+.list_goods a {
+    cursor: pointer;
+}
+
+/*추천상품*/
+	.bx-controls-direction {
+	    position: relative;
+	    width: 1080px;
+	    margin: 0 auto;
+    }
+    
+    .bx-controls-direction .bx-prev {
+	    left: -50px;
+	    background: url(https://res.kurly.com/pc/service/main/1908/btn_prev_default.png?v=1) no-repeat 50% 50%;
+	    transition: background 0.5s;
+	}
+	
+	.bx-controls-direction .bx-next {
+	    right: -20px;
+	    background: url(https://res.kurly.com/pc/service/main/1908/btn_next_gray_x1.png?v=1) no-repeat 50% 50%;
+	    transition: background 0.5s;
+	}
+	
+	.bx-controls-direction .bx-next, .bx-controls-direction .bx-prev {
+	    overflow: hidden;
+	    position: absolute;
+	    bottom: 290px;
+	    width: 60px;
+	    height: 60px;
+	    border: 0 none;
+	    font-size: 0;
+	    line-height: 0;
+	    text-indent: -9999px;
+	    transition: opacity 0.5s;
+	}
+	
+	

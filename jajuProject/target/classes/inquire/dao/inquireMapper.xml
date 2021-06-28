@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="inquireSQL">
+ 
+ 	<insert id="inquireWrite" parameterType="inquire">
+		insert into inquiryboard values(inquiry_seq.nextval,
+				 						#{inquiry_id},
+				 						#{inquiry_name},
+				 						#{inquiryType},
+				 						#{inquiry_telephone},
+				 						#{inquiry_subject},
+				 						#{inquiry_contents},
+				 						#{inquiry_image1},
+				 						#{inquiry_image2},
+				 						#{inquiry_image3},
+				 						#{inquiry_pseq},
+				 						inquiry_seq.nextval,
+				 						#{inquiry_lev},
+				 						#{inquiry_state},
+				 						 sysdate)
+	</insert>
+	
+	<select id = "getInquireList" parameterType = "java.util.Map" resultType = "inquire">
+ 		select *from (select rownum rn, tt.* from
+		(select * from inquiryboard order by inquiry_ref desc, inquiry_lev asc)tt)
+		where rn &gt;=#{startNum} and rn &lt;=#{endNum}
+		
+		<!-- 
+		<![CDATA[
+		select *from (select rownum rn, tt.* from
+		(select * from imageboard order by seq desc)tt)
+		where rn >=#{startNum} and rn <=#{endNum}
+		]]>
+		이렇게 쓰면 <>기호도 사용 가능하다.
+		 -->
+ 	</select>
+ 	
+ 	<select id="getInquireView" parameterType="int" resultType="inquire">
+		select * from inquiryboard where inquiry_seq = #{inquiry_seq}
+	</select>
+ 	
+ 	<!-- 1인분의 글 -->
+ 	<select id="getInquireModify" parameterType="int" resultType="inquire">
+		select * from inquiryboard where inquiry_seq=#{inquiry_seq}
+	</select>
+	
+	<update id="inquireModify" parameterType="inquire" >
+		update inquiryboard set inquiryType=#{inquiryType},
+								  inquiry_subject=#{inquiry_subject}, 
+								  inquiry_contents=#{inquiry_contents}, 
+								  inquiry_image1 = #{inquiry_image1},
+								  inquiry_image2 = #{inquiry_image2},
+								  inquiry_image3 = #{inquiry_image3},
+								  logtime=sysdate 
+								  where inquiry_seq=#{inquiry_seq} 
+	</update>
+	
+	<select id="getTotalA" resultType="int">
+ 		select count(*) from inquiryboard
+ 	</select>
+	
+	<!-- 글삭제 -->
+	<delete id="inquireDelete" parameterType="int">
+		delete inquiryboard where inquiry_seq = #{inquiry_seq}
+	</delete>
+	
+	<insert id="inquireReply" parameterType="java.util.Map">
+		begin
+		insert into inquiryboard(inquiry_seq, inquiry_id, inquiry_name, inquiryType, inquiry_telephone, inquiry_subject, inquiry_contents, inquiry_pseq, inquiry_ref, inquiry_lev, inquiry_state,logtime) values(
+											inquiry_seq.nextval
+										   , '관리자'
+										   , '관리자'
+										   , #{inquiryType}
+										   , '홈페이지 문의 바랍니다'
+										   , '[답글]'||#{inquiry_subject}
+										   , #{inquiry_contents}
+										   , #{pseq}
+										   , #{inquiry_ref}
+										   , #{inquiry_lev}+1
+										   ,' '  
+										   , sysdate);
+		update inquiryboard SET inquiry_state = '처리완료' where inquiry_seq=#{pseq};
+		end;
+	</insert>
+	
+ </mapper>

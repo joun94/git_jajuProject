@@ -1,0 +1,33 @@
+
+@charset "UTF-8";
+/*상단 가로 메뉴*/
+@font-face {
+     font-family: 'S-CoreDream-4Regular';
+     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+}
+* {
+    letter-spacing: -.05em;
+    color: #4c4c4c;
+    font-size: 17px;
+    font-family: 'S-CoreDream-4Regular';
+   -webkit-text-size-adjust: 100%;
+}
+
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+#update_btn{
+	height: 30px;
+    width: 90px;
+	background-color: #617aad;
+    color: #fff;
+    border:none;
+    border-radius: 3px;
+}
+#profile_name{
+	font-size: 20px;
+	font-weight: 700;
+}

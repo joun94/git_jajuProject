@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="reviewboardSQL"> 
+
+<!-- 판매게시판 글 정보 가져오기 -->
+<select id="getSaleboardView" parameterType="int" resultType="saleboard">
+		select * from sale_board where sale_seq = #{sale_seq}
+</select>
+
+<!-- 구매내역 목록 -->
+<select id="myBuyRecodeList" parameterType="java.util.Map" resultType="saleboard">
+		<![CDATA[
+			select * from 
+			(select rownum rn, tt.* from 
+ 			(select * from sale_board where sale_buyer=#{id} and sale_state='판매완료' order by sale_seq desc)tt)
+ 			where rn >= #{startNum} and rn <= #{endNum}
+		]]>
+</select>
+
+<!-- 구매내역 paging  --> <!--#{id}  -->
+<select id="getTotalABuy" parameterType="String"  resultType="int" >
+	select count(*) as count from sale_board where sale_buyer=#{id} and sale_state='판매완료'
+</select>
+ 
+ <!-- write -->
+ 	<insert  id="reviewboardWrite" parameterType="reviewboard">
+	insert into reviewboard values (review_seq.nextval, ${sale_seq}, #{sale_image1}, 
+	 		#{member_id}, #{review_id}, #{sale_subject}, #{review_subject}, #{review_content}, 
+			#{review_image1}, #{review_image2}, #{review_image3},
+	 		#{review_manner}, sysdate, 0)
+ 	</insert>
+ 	
+ 
+ <!--  getList -->
+ 
+ <!--  getList -->
+ <!-- 구매내역 목록 -->
+<select id="review_saleReportList" parameterType="java.util.Map" resultType="saleboard">
+		<![CDATA[
+			select * from 
+			(select rownum rn, tt.* from 
+ 			(select * from sale_board where sale_buyer=#{id} and sale_state='판매완료' order by sale_seq desc)tt)
+ 			where rn >= #{startNum} and rn <= #{endNum}
+		]]>
+</select>
+
+ <select id="getReviewboardList" resultType="reviewboard">
+ 			select * from (
+	 		select rownum rn ,tt.*from(
+	 		select * from reviewboard order by review_date desc)tt)
+	 		<![CDATA[where rn >= ${startNum} and rn <=${endNum}]]>
+ </select>
+ 
+ <!-- get 1인분 -->
+ <select id="getReviewboardView" parameterType="int" resultType="reviewboard">
+	select * from reviewboard where review_seq = #{review_seq}
+</select>
+ 
+<!-- getTotal -->
+ <select id="getTotalA" resultType="int">
+	select count(*) as count from reviewboard
+</select>
+ 
+ <!-- modify -->
+ <update id="reviewboardModify" parameterType="reviewboard">
+ <choose>
+       <when test="review_image1 != ''">
+           update reviewboard set review_subject=#{review_subject},
+ 						review_content=#{review_content},
+ 						review_image1=#{review_image1},
+ 						review_image2=#{review_image2},
+ 						review_image3=#{review_image3},
+ 						review_manner=#{review_manner},
+ 						review_date=sysdate
+ 						where review_seq=#{review_seq}
+             </when>
+        <when test="review_image1 == ''">
+           update reviewboard set review_subject=#{review_subject},
+ 						review_content=#{review_content},
+ 						review_manner=#{review_manner},
+ 						review_date=sysdate
+ 						where review_seq=#{review_seq}
+             </when>
+         </choose>
+ </update>
+ 
+ <!-- delete -->
+  <delete id="reviewboardDelete" parameterType="int">
+ 	delete reviewboard where review_seq=#{review_seq}
+</delete> 
+ 
+ <!-- 조회수 -->
+<update id="upHit_review" parameterType="int">
+	update reviewboard set review_hit=review_hit+1 where review_seq=#{review_seq}
+</update>
+
+<!-- 검색 -->
+
+<select id="getReviewboardSearchList" parameterType="java.util.Map" resultType="reviewboard">
+	<![CDATA[
+		select * from 
+		(select rownum rn, tt. * from 
+	 	(select * from reviewboard where ${searchOption} like '%'||#{keyword}||'%' order by review_date desc)tt) 
+	 	where rn >= ${startNum} and rn <= ${endNum}
+	]]>
+</select>
+
+<!-- 검색 페이지 -->
+<select id="getSearchTotal" parameterType="java.util.Map" resultType="int">
+	select count(*) as count from reviewboard where ${searchOption} like '%'||#{keyword}||'%'
+</select>
+
+ 
+ <!-- 멤버의 모든 리뷰 가져오기 -->
+<select id="getAllReviewboardList" parameterType="String" resultType="reviewboard">
+	select * from reviewboard where member_id = #{member_id}
+</select>
+
+<update id="review_mannerModify">
+	update jajumember set member_manner = ${member_manner} where member_id = #{member_id}
+</update>
+
+	<!-- 이전글, 다음글 -->
+	<select id="getPage" parameterType="int" resultType="reviewboard">
+		select * from(
+		select review_seq,
+			lag(review_seq, 1, 0) over(order by review_seq desc) prev_num,
+			lag(review_subject, 1, '이전글이 없습니다') over (order by review_seq desc) prev_subject,
+			lead(review_seq,1,0) over (order by review_seq desc) next_num,
+			lead(review_subject, 1, '다음글이 없습니다') over (order by review_seq desc) next_subject
+		from reviewboard) 
+		where review_seq=#{review_seq}
+	</select>
+
+
+  </mapper>

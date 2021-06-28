@@ -1,0 +1,222 @@
+@charset "UTF-8";
+
+@font-face {
+     font-family: 'S-CoreDream-4Regular';
+     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+}
+*{
+	font-family: 'S-CoreDream-4Regular';
+}
+.prevPaging{
+	background-image: url(/jaju/jajuImage/icon-pagination-prev.webp);
+}
+.nextPaging{
+	background-image: url(/jaju/jajuImage/icon-pagination-next.webp);
+}
+.firstPaging{
+	background-image: url(/jaju/jajuImage/icon-pagination-first.webp);
+}
+.lastPaging{
+	background-image: url(/jaju/jajuImage/icon-pagination-last.webp);
+}
+.prevPaging, .nextPaging, .firstPaging, .lastPaging{
+	background-repeat: no-repeat;
+    background-position: 50% 50%;
+    text-indent: -9999px;
+}
+.paging{
+	display: inline-block;
+    width: 34px;
+    height: 34px;
+    border: 1px solid #ddd;
+    border-left: 0;
+    vertical-align: top;
+    margin-top: 20px;
+    font-size: 12px;
+    cursor: pointer;
+}
+.paging:first-child {
+	border-left: 1px solid #ddd;
+}
+.currentPaging, .thisPaging:hover, .currentPaging:hover{
+    background-color: #f2f2f2;
+    color: #47597e;
+    font-size: 12px;
+}
+.currentPaging, .thisPaging{
+    font-weight: 700;
+    color: #333;
+    line-height: 34px;
+    margin-top: 20px;
+    font-size: 12px;
+}
+#content {
+    min-width: 1050px;
+    padding-bottom: 120px;
+}
+#header, #container, #content {
+    position: relative;
+}
+div, th, td, li, dt, dd, p {
+    word-break: break-all;
+}
+*, *:after, *:before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+div {
+    display: block;
+}
+body, input, select, textarea, button {
+    line-height: 1;
+    letter-spacing: -.05em;
+    color: #4c4c4c;
+    font-size: 18px;
+    max-width: 100%;
+}
+html {
+    -webkit-text-size-adjust: 100%;
+}
+*, *:after, *:before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+script {
+    display: none;
+}
+.page_aticle.aticle_type2 .page_section {
+    float: right;
+    width: 820px;
+}
+.page_aticle button, .page_aticle input, .page_aticle select, .page_aticle * {
+    font-weight: 400;
+    letter-spacing: 0;
+}
+.page_aticle .head_aticle {
+    padding: 5px 0 34px;
+}
+.page_aticle .head_aticle .tit {
+    height: 36px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    color: #333;
+    letter-spacing: -.5px;
+    font-color: black;
+}
+h2 {
+    display: block;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+body {
+    display: block;
+    margin: 0;
+}
+html, body {
+    height: 100%;
+}
+.xans-board-listheader {
+    border-top: 2px solid #47597e;
+    font-size: 14px;
+    line-height: 140%;
+}
+.inquireTable{
+	font-size: 14px;
+    line-height: 140%;
+}
+.inquireTable td{
+	margin-top: 20px;
+	border-bottom: 1px solid #e6e6e6;
+}
+.xans-board-listheader th, .inquireTable td {
+    padding: 20px 0;
+    vertical-align: middle;
+    font-size: 14px;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    display: table;
+    text-indent: initial;
+    border-color: grey;
+}
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+table[Attributes Style] {
+    width: 100%;
+}
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+
+th[Attributes Style] {
+    width: 8%;
+}
+
+.page_aticle .no_data {
+    text-align: center;
+}
+th {
+    display: table-cell;
+    text-align: -internal-center;
+    text-align: center;
+}
+a {
+    background-color: transparent;
+    text-decoration: none;
+    color: inherit;
+}
+
+a:-webkit-any-link {
+    cursor: pointer;
+}
+.bhs_buttonsm {
+    width: 100px;
+    display: inline-block;
+    line-height: 30px;
+    text-align: center;
+    background-color: #617aad;
+    border: 1px solid #47597e;
+    color: #fff;
+    margin-left: 2px;
+    font-size: 14px;
+}
+.bhs_buttonsm:hover{
+    background-color: #47597e;
+    border: 1px solid #47597e;
+}
+.page_aticle .layout-pagination {
+    font-size: 0;
+}
+.layout-pagination {
+    margin-top: 0px;
+    text-align: center;
+}
+
+#total{
+	margin-left: 40px;
+	width: 800;
+}
+.page_section.section_qna {
+    width: 800px;
+    float: left;
+    margin-left: 40px;
+    margin-bottom: 40px;
+}
+td a:hover{
+	font-weight: bold;
+	text-decoration: none;
+	color: #333;
+}

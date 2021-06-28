@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-config.dtd">
+ 
+ <configuration>
+ 	<typeAliases>
+ 		<typeAlias type="member.bean.MemberDTO" alias="member"/>
+ 		
+ 		<typeAlias type="notice.bean.NoticeDTO" alias="notice"/>
+		<typeAlias type="report.bean.ReportDTO" alias="report"/>
+		<typeAlias type="inquire.bean.InquireDTO" alias="inquire"/>
+		<typeAlias type="question.bean.QuestionDTO" alias="question"/>
+		<typeAlias type="report.bean.CommentDTO" alias="comment"/>
+		
+		<typeAlias type="saleboard.bean.SaleboardDTO" alias="saleboard"/>
+		<typeAlias type="saleboard.bean.SaleboardCommentDTO" alias="saleboardComment"/>
+		<typeAlias type="freeboard.bean.FreeboardDTO" alias="freeboard"/>
+		<typeAlias type="freeboard.bean.FreeboardCommentDTO" alias="freeboardComment"/>
+ 		<typeAlias alias="saleboard2" type="mypage.bean.SaleboardDTO" />
+ 		<typeAlias type="reviewboard.bean.ReviewboardDTO" alias="reviewboard"/>
+ 		
+		<typeAlias alias="mypage" type="mypage.bean.MypageDTO" />
+		<typeAlias alias="mypageFollow" type="mypage.bean.FollowDTO" />
+		<typeAlias alias="mypageMessage" type="mypage.bean.MessageDTO" />
+		<typeAlias alias="mypageScrap" type="mypage.bean.ScrapDTO" />
+		<typeAlias alias="mylocation" type="mypage.bean.MylocationDTO" />
+ 		<typeAlias alias="mycount" type="mypage.bean.MyCountDTO" />
+ 	</typeAliases>
+ </configuration>

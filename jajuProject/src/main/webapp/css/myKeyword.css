@@ -1,0 +1,137 @@
+@charset "UTF-8";
+@font-face {
+     font-family: 'S-CoreDream-4Regular';
+     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+}
+* {
+    font-family: 'S-CoreDream-4Regular';
+    line-height: 2;
+    letter-spacing: -.05em;
+    /*color: #4c4c4c;*/
+    font-size: 15px;
+    max-width: 100%;
+}
+body {
+    width: 100%;
+    height: 100%;
+    
+    text-align: -webkit-center;
+}
+html {
+     font-family: 'S-CoreDream-4Regular';
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+.keywordList{
+	border-bottom: 1px solid #333;
+}
+.head_aticle, .list-description{
+	    text-align: center;
+}
+.tit {
+    height: 36px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 50px;
+    color: #333;
+    letter-spacing: -.5px;
+}
+.board-header-container {
+    padding-bottom: 5px;
+    font-family: 'S-CoreDream-4Regular';
+}
+
+.list-description {
+    font-family: 'S-CoreDream-4Regular';
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #999;
+    margin-bottom: 10px;
+    background: #f8f8f8;
+    padding: 5px;
+}
+.list-description li{
+    font-family: 'S-CoreDream-4Regular';
+    font-weight: 400;
+    letter-spacing: 0;
+    font: 15px Arial, sans-serif, #808080;
+    
+}
+ol, ul {
+    list-style-type: none;
+}
+.mainMessage{
+	width:100%;
+	align-content: center;
+	display: inline-block;
+}
+.message_Btn{
+    align-content: center;
+    margin-top: 20px;
+    width: 200px;
+    height: 30px;
+    text-align: center;
+}
+.message_Btn:after{
+	content: "";
+	display: block;
+	clear: both;
+}
+.keywordList td{
+	text-align: -webkit-left;
+}
+.text td:eq(0){
+	text-align: right;
+}
+
+.sendBtn  {
+	width:80px;
+    height: 30px;
+    padding-top: 4px;
+    border: 1px solid #f4f4f3;
+    border-radius: 15px;
+    background-color: #f4f4f4;
+    font-size: 15px;
+    color: #333;
+    line-height: 18px;
+    padding-bottom: 10px;
+}
+ .resetBtn  {
+	width:80px;
+    height: 30px;
+    padding-top: 4px;
+    border: 1px solid #f4f4f3;
+    border-radius: 15px;
+    background-color: #f4f4f4;
+    font-size: 15px;
+    color: #333;
+    line-height: 18px;
+    padding-bottom: 10px;
+    
+}
+
+#myKeywordDiv {
+/*     margin-left: 5%;
+    display: inline-block;
+    width: 600px;
+    height: 600px;
+    float: left; */
+    width: 800px;
+    display: inline-block;
+    height: 600px;
+    float: left;
+    box-sizing: border-box;
+    -webkit-box-flex: 1;
+    flex: 1;
+    margin-left: 1.5%;
+}
+#myKeywordDiv table {
+    background-color: transparent;
+    width: -webkit-fill-available;
+}
+label{
+	cursor: pointer;
+}

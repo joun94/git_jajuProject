@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="freeboardSQL"> 
+ 
+ <!-- 글쓰기 -->
+ <insert id="freeboardWrite" parameterType="freeboard">
+ insert into freeboard values (seq_freeboard.nextval, #{board_id}, #{board_subject}, #{board_content}, #{image1}, #{image2}, #{image3},
+ 								${board_hit}, sysdate)
+ 
+ </insert>
+ 
+ <!-- board_seq 순으로 바꾸고 싶다 -->
+ <select id="getFreeboardList" resultType="freeboard">
+ 			select * from (
+	 		select rownum rn ,tt.*from(
+	 		select * from freeboard order by logtime desc)tt)
+	 		<![CDATA[where rn >= ${startNum} and rn <=${endNum}]]>
+ </select>
+
+ 
+<select id="getFreeboardView" parameterType="int" resultType="freeboard">
+	select * from freeboard where board_seq = #{board_seq}
+</select>
+
+<select id="getTotalA" resultType="int">
+	select count(*) as count from freeboard
+</select>
+
+<!-- 글 수정 -->
+ <update id="freeboardModify" parameterType="freeboard">
+ <choose>
+       <when test="image1 != ''">
+           update freeboard set board_subject=#{board_subject},
+ 						board_content=#{board_content},
+ 						image1=#{image1},
+ 						image2=#{image2},
+ 						image3=#{image3},
+ 						logtime=sysdate
+ 						where board_seq=#{board_seq}
+             </when>
+        <when test="image1 == ''">
+			update freeboard set board_subject=#{board_subject},
+ 						board_content=#{board_content},
+ 						logtime=sysdate
+ 						where board_seq=#{board_seq}
+             </when>
+         </choose>
+ </update>
+ 
+ <!-- 삭제 -->
+ <delete id="freeboardDelete" parameterType="int">
+ 	delete freeboard where board_seq=#{board_seq}
+</delete>
+
+<!-- 조회수 -->
+<update id="upHit_board" parameterType="int">
+	update freeboard set board_hit=board_hit+1 where board_seq=#{board_seq}
+</update>
+
+<!-- 검색 -->
+<select id="getFreeboardSearchList" parameterType="java.util.Map" resultType="freeboard">
+	<![CDATA[
+		select * from 
+		(select rownum rn, tt. * from 
+	 	(select * from freeboard where ${searchOption} like '%'||#{keyword}||'%' order by logtime desc)tt) 
+	 	where rn >= ${startNum} and rn <= ${endNum}
+	]]>
+</select>
+
+<!-- 검색한 총글수 -->
+<select id="getSearchTotal" parameterType="java.util.Map" resultType="int">
+	select count(*) as count from freeboard where ${searchOption} like '%'||#{keyword}||'%'
+</select>
+
+	<!-- 댓글 -->
+	<insert id="writeFreeboardComment" parameterType="java.util.Map">
+		insert into freeboard_comment values(freeboard_comment_seq.nextval, ${board_seq}, #{board_id}, #{comment_content}, freeboard_comment_seq.currval,0,0,0,sysdate)
+	</insert>
+	
+	<!-- 댓글 불러오기 -->
+	<select id="getFreeboardComment" parameterType="java.util.Map" resultType="freeboardComment">
+		select * from (
+ 		select rownum rn ,tt.*from(
+ 		select * from freeboard_comment where board_seq = ${board_seq} order by comment_ref desc, comment_step asc)tt)
+ 		<![CDATA[where rn >= ${startNum} and rn <=${endNum}]]>
+	</select>
+	
+	<select id="getCommentTotal2" resultType="int" parameterType="Integer">
+		select count(*) as count from freeboard_comment where board_seq=${board_seq}
+	</select>
+	
+	<insert id="writeReplyFreeboardComment" parameterType="java.util.Map">
+		begin
+ 			update freeboard_comment set comment_step = comment_step + 1 where comment_ref = ${comment_ref} and comment_step > ${comment_step};
+ 			insert into freeboard_comment values(freeboard_comment_seq.nextval, ${board_seq}, #{board_id}, #{comment_content}, ${comment_ref}, ${comment_lev}+1,${comment_step}+1,${comment_pseq},sysdate);			
+ 		end;
+	</insert>
+	
+	<!-- 댓글 1개 가져오기 -->
+	<select id="getFreeboardCommentOne" parameterType="Integer" resultType="freeboardComment">
+		select * from freeboard_comment where comment_seq = ${comment_pseq}
+	</select>
+	<!-- 댓글 수정하기 -->
+	<update id="commentModify" parameterType="java.util.Map">
+		update freeboard_comment set comment_content = #{comment_content}, logtime = sysdate where comment_seq = ${comment_seq}
+	</update>
+	
+	<!-- 댓글 삭제 -->
+	<delete id="commentDelete" parameterType="freeboardComment">
+		begin
+ 			update freeboard_comment set comment_content =  '[원글이 삭제된 답글]'||comment_content where comment_pseq = #{comment_seq};
+ 			delete freeboard_comment where comment_seq = #{comment_seq};
+ 		end;
+	</delete>
+
+	<!-- 이전글, 다음글 -->
+	<select id="getPage" parameterType="int" resultType="freeboard">
+		select * from(
+		select board_seq,
+			lag(board_seq, 1, 0) over(order by board_seq desc) prev_num,
+			lag(board_subject, 1, '이전글이 없습니다') over (order by board_seq desc) prev_subject,
+			lead(board_seq,1,0) over (order by board_seq desc) next_num,
+			lead(board_subject, 1, '다음글이 없습니다') over (order by board_seq desc) next_subject
+		from freeboard) 
+		where board_seq=#{board_seq}
+	</select>
+
+ 
+ </mapper>

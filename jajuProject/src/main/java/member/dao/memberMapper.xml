@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="memberSQL">
+ 	<select id="login" parameterType="java.util.Map" resultType="member">
+ 		select * from jajumember where member_id=#{member_id} and member_pwd=#{member_pwd}
+ 	</select>
+ 	
+ 	<select id="getMember" parameterType="String" resultType="member">
+ 		select * from jajumember where member_id=#{member_id}
+ 	</select>
+ 	
+ 	<insert id="write" parameterType="member">
+ 		begin
+ 		insert into jajumember(member_seq, member_id, member_pwd, member_name, member_email, member_telephone,
+ 								member_sido, member_sigungu, member_address, member_detailaddr, member_gender)
+ 					values(seq_jajumember.nextval, #{member_id}, #{member_pwd}, #{member_name}, #{member_email}, #{member_telephone}, 
+ 							#{member_sido}, #{member_sigungu}, #{member_address}, #{member_detailAddr}, #{member_gender});
+ 		
+ 		insert into location (location_id, location1_addr1, location1_addr2) 
+ 						values(#{member_id}, #{member_sido}, #{member_sigungu});
+ 						
+ 		insert into keyword(keyword_id) values(#{member_id});
+ 		end;
+ 	</insert>
+ 	
+ 	<insert id="kakao_write" parameterType="java.util.Map">
+ 		begin
+ 		insert into jajumember(member_seq, member_id, member_name, member_email,
+ 								member_sido, member_sigungu, member_address, member_detailaddr)
+ 					values(seq_jajumember.nextval, #{member_id}, #{member_name}, #{member_email}, 
+ 							#{member_sido}, #{member_sigungu}, #{member_address}, #{member_detailAddr});
+ 		
+ 		insert into location (location_id, location1_addr1, location1_addr2) 
+ 						values(#{member_id}, #{member_sido}, #{member_sigungu});
+ 						
+ 		insert into keyword(keyword_id) values(#{member_id});
+ 		end;
+ 	</insert>
+ 	
+ 	<update id="modify" parameterType="member">
+ 		update jajumember set member_pwd=#{member_pwd}, member_name=#{member_name},
+ 							  member_email=#{member_email}, member_telephone=#{member_telephone},
+ 							  member_sido=#{member_sido}, member_sigungu=#{member_sigungu}, member_address=#{member_address},
+ 							  member_detailaddr=#{member_detailAddr}, member_gender=#{member_gender} where member_id=#{member_id}
+ 	</update>
+ 	
+ 	<select id="getId" parameterType="java.util.Map" resultType="member">
+ 		select * from jajumember where member_name=#{search_name} and member_email=#{search_email}
+ 	</select>
+ 	
+ 	<select id="getPwd" parameterType="java.util.Map" resultType="member">
+ 		select * from jajumember where member_name=#{search_name} and member_email=#{search_email} and member_id=#{search_id}
+ 	</select>
+ </mapper>

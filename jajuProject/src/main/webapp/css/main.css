@@ -1,0 +1,264 @@
+@charset "UTF-8";
+
+@font-face {
+     font-family: 'S-CoreDream-4Regular';
+     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+}
+
+*{
+	font-family: 'S-CoreDream-4Regular';
+}
+body {
+	margin: 0;
+	padding : 0;
+	background-color: white;
+	color: #263343;
+}
+
+/* 
+#wrap {
+	width: 760px;
+	margin: 0 auto;
+	170은 왼쪽으로 부터 떨어진 만큼 에 선을 넣어줌 , 위는 0으로 딱 붙어있다.
+
+}
+ */
+
+body, input {
+	font-family: 'S-CoreDream-4Regular';
+}
+
+a {
+	text-decoration: none;
+	color: white;
+}
+
+.main {
+	color: white;
+	margin: 20px;
+	font-size: 40px;
+}
+
+.main:hover {
+	background-color: #d49466;
+	border-radius: 4px;
+	transition: 0.3s;
+}
+
+.logo {
+	margin-bottom: 0px;
+	margin-top: 0px;
+	
+}
+
+.logo a {
+	margin: 0px;
+	padding: 0px;
+	display: flex;
+}
+
+.logo a img{
+	width: 100px;
+	line-height: normal;
+}
+.navbar {
+	width: 100%; 
+	height : 60px;
+	line-height:normal;
+	position : relative;
+	display: inline-block;
+	justify-content: space-between;
+	align-items: center;
+	background-color: white;
+	position: relative;
+}
+
+.basicMenu {
+	list-style: none;
+	text-align: center;
+	font-size: 25px;
+	color: white;
+	padding :5px 5px;
+	margin: 0 0;
+}
+
+.basicMenu>li {
+	font: bold 15px 'S-CoreDream-4Regular';
+	padding :5px 5px;
+	display: inline-block;
+	justify-content: space-between;
+	margin-left: 50px;
+	
+}
+
+.basicMenu li:hover {
+	background-color: #d49466;
+	border-radius: 4px;
+	transition: 0.3s;
+}
+
+.basicMenu:after {
+	/*container-snb,content 오른쪽에  바로 붙지 않게 하기 위해서 미리해제. clear 함 */
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.mainnav {
+	margin: 0px 0px;
+	padding-right: 50px;
+	background-color: #005B9B;
+	list-style: none;
+	font-size: 45px;
+}
+
+.mainnav:after {
+	/*container-snb,content 오른쪽에  바로 붙지 않게 하기 위해서 미리해제. clear 함 */
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.mainnav li {
+	display: inline-block;
+	justify-content: space-between;
+	margin-left: 150px;
+}
+
+.mainnav li a {
+	text-align: center;
+	padding: 0 13px;
+	background-color: #005B9B;
+	color: #ffffff;
+	font: bold 16px/40px 'S-CoreDream-4Regular';
+	/*굵기 크기, line-height (줄간격) 글꼴 */
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+.mainnav li a:hover {
+	color: #660000;
+	background-color: #ffcc00;
+}
+#container{	min-height: 800px;
+	
+}
+
+.snb { /*가로 폭 지정, 왼쪽배치*/
+	float: left;
+	width: 170px;
+}
+
+
+.snb h2 {
+	padding: 28px 14px 8px 0;
+	margin-left: 11px;
+	margin-bottom: 15px;
+	border-bottom: 1px solid #cccccc;
+	color: black;
+	font: bold 20px 'S-CoreDream-4Regular';
+	text-align: right;
+}
+
+.snb ul {
+	margin-left: 11px;
+	list-style: none;
+}
+
+.snb ul a {
+	display: block;
+	padding-right: 14px;
+	color: black;
+	font: bold 15px 'S-CoreDream-4Regular';
+	text-align: right;
+	text-decoration: none;
+	line-height: 30px;
+}
+.snb ul a:hover{
+	color: #660000;
+	text-decoration: underline;	
+}
+
+.picture{
+	margin-left: 300px;
+}
+
+#best{ 
+	width:300px;
+	height:300px;
+	padding: 20px;
+}
+#container> .navPicture >.picture > img {
+	display : inline-block;
+	margin: 0 auto;
+	padding-left:40px;
+	width: 350px;
+	height: 450px;
+}
+
+#container .story{
+	text-align: center;
+	font: 45px 'S-CoreDream-4Regular';
+}
+
+#container > .story > .Welcome > img {
+	width:100%;
+	height: 400px; 
+}
+
+#footer {
+	position: relative;
+	margin-top: 0px;
+	background-color: white;
+	
+}
+ #footer .footerArea{
+	border-top: 1px solid #cccccc;
+	padding: 0px;
+	height: 100px;
+	width: 100%;
+	margin: 0;
+	color : #666;
+	font-size: 0.9em;
+ }
+
+ .btmnav{
+ 	float : right;
+ 	line-height :normal;
+ 	margin-right: 30px;
+ 	margin-top : 18px;
+ }
+ .btmnav dd{
+ 	vertical-align :middle;
+	float : left;
+}
+ .copy{
+	float:left;
+	line-height:1.8;
+	margin-left: 20px;
+	margin-top: 18px;
+}
+#carrot_text{
+	align-items: center;
+	font-size: 40px;
+}
+#footer_url_picture{
+	width: 25px;
+	height: 25px;
+}
+#footer_url_div {
+	float:right;
+	line-height:1.8;
+	margin-left: 20px;
+	margin-right:0;
+	margin-top: 18px;
+	vertical-align :middle;
+	
+}
+#market_phone_num {
+	font-size: 50px;
+	margin-left: 20px;
+}
+

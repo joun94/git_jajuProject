@@ -1,0 +1,341 @@
+@charset "UTF-8";
+
+@font-face {
+     font-family: 'S-CoreDream-4Regular';
+     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+}
+*{
+	font-family: 'S-CoreDream-4Regular';
+}
+.page_section{
+	width : 800px;
+	float : left;
+	margin-left :20px; 
+}
+#content {
+    min-width: 1050px;
+    padding-bottom: 120px;
+}
+#header, #container, #content {
+    position: relative;
+}
+div, th, td, li, dt, dd, p {
+    word-break: break-all;
+}
+*, *:after, *:before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+div {
+    display: block;
+}
+body, input, select, textarea, button {
+    line-height: 1;
+    letter-spacing: -.05em;
+    color: #4c4c4c;
+    font-size: 12px;
+    max-width: 100%;
+}
+html {
+    -webkit-text-size-adjust: 100%;
+}
+.page_aticle.aticle_type2 {
+    padding-top: 65px;
+}
+.page_aticle {
+    width: 1050px;
+    margin: 0 auto;
+}
+.page_aticle.aticle_type2 .page_section {
+    float: right;
+    width: 820px;
+}
+.page_aticle button, .page_aticle input, .page_aticle select, .page_aticle * {
+    font-weight: 400;
+    letter-spacing: 0;
+}
+.page_aticle .head_aticle {
+    padding: 5px 0 34px;
+}
+.page_aticle .head_aticle .tit {
+    height: 36px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    color: #333;
+    letter-spacing: -.5px;
+}
+h2 {
+    display: block;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+input[type="hidden" i] {
+    display: none;
+    appearance: none;
+    background-color: initial;
+    cursor: default;
+    border: initial;
+    border-color: initial;
+    border-radius: initial;
+}
+input {
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    text-align: start;
+    -webkit-rtl-ordering: logical;
+    border-radius: 2px;
+}
+.xans-board-write .boardWrite2 {
+    table-layout: fixed;
+    border-top: 2px solid #333;
+    line-height: 180%;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    display: table;
+    text-indent: initial;
+    border-color: grey;   
+}
+table[Attributes Style] {
+    width: 100%;
+}
+colgroup {
+    display: table-column-group;
+}
+col[Attributes Style] {
+    width: 14%;
+    text-align: -webkit-right;
+}
+col {
+    display: table-column;
+}
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+.xans-board-write table th {
+    width: 110px;
+    padding: 15px 0 15px 20px;
+    background-color: #f7faff;
+    border-bottom: 1px solid #f4f4f4;
+    text-align: left;
+    font-weight: 400;
+    vertical-align: middle;
+}
+.boardWrite2 th {
+    background: ##f7faff;
+}
+th {
+    display: table-cell;
+}
+.xans-board-write table td {
+    width: auto;
+    padding: 15px 0 15px 10px;
+    height: 23px;
+    border-top: 1px solid #f4f4f4;
+    border-bottom: 1px solid #f4f4f4;
+    vertical-align: middle;
+    line-height: 20px;
+}
+.xans-board-write table select {
+    padding: 6px 5px;
+    border: 1px solid #d9d9d9;
+    margin-bottom: 5px;
+    color: #202020;
+}
+button, input, optgroup, select, textarea {
+    font: inherit;
+    margin: 0;
+}
+select:not(:-internal-list-box) {
+    overflow: visible !important;
+}
+select {
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    word-spacing: normal;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    appearance: auto;
+    align-items: center;
+    white-space: pre;
+    -webkit-rtl-ordering: logical;
+    background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+    cursor: default;
+}
+option {
+    display: block;
+    white-space: nowrap;
+    min-height: 1.2em;
+}
+.xans-board-write table select {
+    padding: 6px 5px;
+    border: 1px solid #d9d9d9;
+    margin-bottom: 5px;
+    color: #202020;
+}
+button, select {
+    text-transform: none;
+}
+.bhs_button.yb {
+    background-color: #617aad;
+    color: #fff;
+}
+button, html input[type=button], input[type=reset], input[type=submit] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+.bhs_button {
+    width: 150px;
+    display: inline-block;
+    line-height: 40px;
+    text-align: center;
+    background-color: #617aad;
+    border: 1px solid #47597e;
+    font-size: 15px;
+    margin-left: 2px;
+    font-size: 13px;
+}
+.bhs_button:hover{
+    background-color: #47597e;
+    border: 1px solid #47597e;
+}
+input[type="button" i] {
+    user-select: none;
+    white-space: pre;
+    align-items: flex-start;
+}
+head {
+    display: none;
+}
+body {
+    display: block;
+    margin: 8px;
+}
+.xans-board-write .boardWrite2 input[type=text].read_only {
+    color: #949296;
+}
+.xans-board-write table input[type=text], .xans-board-write table input[type=password], .xans-board-write table textarea {
+    height: 30px;
+    line-height: 25px;
+    border: 1px solid #d9d9d9;
+}
+.xans-board-write table input[type=text], .xans-board-write table input[type=password] {
+    padding: 3px;
+}
+.boardWrite2 .smalle {
+    position: relative;
+}
+.boardWrite2 .smalle input[type=checkbox] {
+    position: relative;
+    right: 2px;
+    vertical-align: middle;
+}
+input[type=checkbox], input[type=radio] {
+    box-sizing: border-box;
+    padding: 0;
+}
+input[type="checkbox" i] {
+    background-color: initial;
+    cursor: default;
+    appearance: auto;
+    box-sizing: border-box;
+    border: initial;
+}
+style {
+    display: none;
+}
+.xans-board-write table input[type=text], .xans-board-write table input[type=password], .xans-board-write table textarea {
+    line-height: 25px;
+    border: 1px solid #d9d9d9;
+    color: #202020;
+}
+textarea {
+    overflow: auto;
+}
+textarea {
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    appearance: auto;
+    background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+    -webkit-rtl-ordering: logical;
+    flex-direction: column;
+    resize: auto;
+    cursor: text;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    column-count: initial !important;
+    border-radius: 2px;
+}
+td[Attributes Style] {
+    white-space: -webkit-nowrap;
+    text-align: -webkit-center;
+    text-align: -webkit-right;
+}
+input[type="file" i] {
+    appearance: none;
+    background-color: initial;
+    cursor: default;
+    align-items: baseline;
+    text-overflow: ellipsis;
+    white-space: pre;
+    text-align: start !important;
+    border: initial;
+    border-color: initial;
+    overflow: hidden !important;
+    border-radius: initial;
+}
+a {
+    background-color: transparent;
+    text-decoration: none;
+    color: inherit;
+}
+a:-webkit-any-link {
+    cursor: pointer;
+}
+img {
+    border: 0;
+}
+img, video, canvas {
+    max-width: 100%;
+}
+img[Attributes Style] {
+    vertical-align: middle;
+}
+[type=submit] {
+    border-radius: 0;
+}
+input[type="submit" i] {
+    user-select: none;
+    white-space: pre;
+    align-items: flex-start;
+}
+input.linebg, input.line{
+    display: inline-block;
+}
+

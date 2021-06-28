@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="memberreportSQL">
+ 	
+ 	<!-- 글쓰기에 신고아이디, 신고글 뿌리기 -->
+ 	<select id="getReportInformation" parameterType="java.util.Map" resultType="report">
+ 		select * from memberreport where report_seq=#{report_seq}
+ 	</select>
+ 	
+	<!-- 글쓰기 -->
+ 	<insert id="reportWrite" parameterType="report">
+ 		insert into memberreport values (#{sale_seq},
+	 							   #{sale_id}, 							
+	 							   seq_memberreport.nextval,
+	 							   #{report_id},
+	 							   #{report_name},
+	 							   #{reportType},
+	 							   #{report_tal},
+	 							   #{report_subject},
+	 							   #{report_content},
+	 							   #{report_image1},
+	 							   #{report_image2},
+	 							   #{report_image3},
+	 							   #{report_state},
+	 							   sysdate)
+ 	</insert>
+ 	
+ 	<!-- 목록 --><!-- 페이징 처리 -->
+<!--  	<select id="getReportList" parameterType="java.util.Map" resultType="report">
+ 		select * from
+ 		(select rownum rn, tt.* from
+ 		(select * from memberreport order by report_seq desc)tt
+ 		)where rn &gt;= #{startNum} and rn &lt;= #{endNum}
+ 	</select> -->
+ 	<select id="getReportList" parameterType="java.util.Map" resultType="report">
+ 		select * from
+ 		(select rownum rn, tt.* from
+ 		(select * from memberreport where report_id=#{report_id} order by report_seq desc)tt
+ 		)where rn &gt;= #{startNum} and rn &lt;= #{endNum}
+ 	</select>
+ 	 
+ 	<!-- 총 글수 -->
+ 	<select id="getTotalA" resultType="int">
+ 		select count(*) from memberreport
+ 	</select>
+ 	
+ 	<!-- ID 값의 총 글수 -->
+ 	<select id="getIdTotalA" resultType="int">
+ 		select count(*) from memberreport where report_id=#{report_id}
+ 	</select>
+ 	
+ 	
+ 	<!-- 수정 -->
+ 	<update id="reportModify" parameterType="report">
+ 		update memberreport set sale_seq=#{sale_seq},
+ 								sale_id=#{sale_id},
+ 								reportType=#{reportType},
+ 								report_tal=#{report_tal},
+ 								report_subject=#{report_subject},
+ 								report_content=#{report_content},
+								report_image1=#{report_image1},
+								report_image2=#{report_image2},
+								report_image3=#{report_image3},
+								logtime=sysdate where report_seq=#{report_seq}
+ 	</update>
+ 	
+ 	<!-- 한 사람글  -->
+ 	<select id="getReport" parameterType="int" resultType="report">
+ 		select * from memberreport where report_seq=#{report_seq}
+ 	</select>
+ 	
+	 <!-- 글삭제 -->
+	  <delete id="reportDelete" parameterType="int">
+	 		delete from memberreport where report_seq=#{report_seq}
+	 </delete>
+	 
+	 
+	 
+	 <!-- 댓글입력 -->
+	 <insert id="commentWrite" parameterType="java.util.Map">
+	 	begin
+		insert into reportcomment values (${report_seq},
+										 seq_reportcomment.nextval,
+								 		 #{comment_content},
+								 		 sysdate);
+	 
+	 	update memberreport set report_state='처리완료' where report_seq=#{report_seq};
+	 	end;
+	 </insert>
+	 
+	 <!-- 목록 -->
+	 <select id="getCommentList" parameterType="int" resultType="comment">
+	 	select * from reportcomment where report_seq=#{report_seq}
+	 </select>
+	 
+	 <!-- 댓글 불러오기 -->
+	 <select id="getComment" parameterType="int" resultType="comment">
+ 		select * from reportcomment where comment_seq=#{comment_seq}
+ 	</select>
+	 
+	 <!-- 수정 -->
+	 <update id="commentModify" parameterType="comment">
+		update reportcomment set comment_content=#{comment_content},
+						 		 logtime=sysdate where comment_seq=#{comment_seq}
+	 </update>
+	 
+	 <!-- 삭제 -->
+	 <delete id="commentDelete" parameterType="java.util.Map">
+		begin
+	 	delete from reportcomment where comment_seq=#{comment_seq};
+	 	
+	 	update memberreport set report_state='처리중' where report_seq=#{report_seq};
+	 	end;
+	 </delete>
+	 
+ </mapper>
