@@ -1,10 +1,3 @@
-@font-face {
-     font-family: 'S-CoreDream-4Regular';
-     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff') format('woff');
-     font-weight: normal;
-     font-style: normal;
-}
-
 * {
   margin: 0;
   box-sizing: border-box;
@@ -12,7 +5,7 @@
 
 body {
   height: 100vh;
-  font-family: 'S-CoreDream-4Regular';
+  font-family: 'Noto Sans KR', sans-serif;
   color: #333333;
   word-break: keep-all;
 }
@@ -29,7 +22,7 @@ ul {
 }
 
 input {
-  font-family: 'S-CoreDream-4Regular';
+  font-family: 'Noto Sans KR', sans-serif;
   letter-spacing: -0.04em;
   border: none;
   outline: none;
@@ -63,7 +56,7 @@ button {
 .title-arrow {
   width: 30px;
   height: 30px;
-  background-image: url();
+  background-image: url(./assets/title_arrow.webp);
   background-repeat: no-repeat;
   background-size: 30px 30px;
 }
@@ -149,7 +142,7 @@ button {
 /* modal */
 .promotion-modal {
   margin: 0 auto;
-  background-color: #064acb;
+  background-color: #5f0080;
 }
 
 .promotion-link {
@@ -171,7 +164,7 @@ button {
   display: inline-block;
   width: 40px;
   height: 40px;
-  background-image: url(;
+  background-image: url(./assets/arrow.webp);
   background-repeat: no-repeat;
   background-size: 40px 40px;
 }
@@ -179,7 +172,7 @@ button {
 .promotion-close {
   width: 42px;
   height: 42px;
-  background-image: url();
+  background-image: url(./assets/close.webp);
   background-repeat: no-repeat;
   background-size: 42px 42px;
   position: absolute;
@@ -193,18 +186,18 @@ button {
   margin: 0 auto;
 }
 
-.header_bar {
+.header-contents {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.carrot_image {
-  width: 10px;
-  height: 10px;
+.delivery-image {
+  width: 160px;
+  height: 22px;
 }
 
-.carrot_image img {
+.delivery-image img {
   width: 100%;
   height: 100%;
 }
@@ -215,8 +208,7 @@ button {
 }
 
 .sign-up-item,
-.sign-in-item,
-.map-item {
+.sign-in-item {
   padding: 0 12px;
   position: relative;
 }
@@ -243,20 +235,8 @@ button {
   left: 55px;
 }
 
-
-.map-item::after {
-  content: '';
-  display: block;
-  width: 0.5px;
-  height: 14px;
-  background-color: #bdbdbd;
-  position: absolute;
-  top: 3px;
-  left: 45px;
-}
-
 .sign-up-item a {
-  color: #064acb;
+  color: #5f0080;
 }
 
 .service-center-item {
@@ -269,7 +249,7 @@ button {
 .service-center-icon {
   width: 18px;
   height: 18px;
-  background-image: url(../image/down.webp);
+  background-image: url(./assets/down.webp);
   background-repeat: no-repeat;
   background-position: center center;
 }
@@ -283,7 +263,7 @@ button {
   top: 25px;
   right: 7px;
   z-index: 50;
-  visibility: visible;/*hidden으로 바꿔야함*/
+  visibility: hidden;
 }
 
 .service-center-detail li {
@@ -294,15 +274,13 @@ button {
   margin-bottom: 0;
 }
 
-
-
 .show {
   visibility: visible;
 }
 
 .logo-image {
-  width: 150px;
-  height: 150px;
+  width: 103px;
+  height: 79px;
   margin: -20px auto 12px;
 }
 
@@ -312,7 +290,7 @@ button {
 }
 
 .mobile-menu {
-  display: inline-block;
+  display: none;
 }
 
 .navbar {
@@ -320,7 +298,6 @@ button {
   justify-content: space-between;
   align-items: center;
   margin: 12px 0;
-  margin-left: 50px;
 }
 
 .navbar-close {
@@ -341,8 +318,8 @@ button {
 }
 
 .menu > li > a:hover {
-  color: #064acb;
-  border-bottom-color: #064acb;
+  color: #5f0080;
+  border-bottom-color: #5f0080;
 }
 
 .all-category a:hover {
@@ -353,37 +330,37 @@ button {
   width: 16px;
   height: 14px;
   margin-right: 8px;
-  background-image: url(../image/menu.webp);
+  background-image: url(./assets/menu.webp);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 16px 14px;
 }
 
-.all_category_item {
+.all-category-item {
   border: 1px solid #ddd;
   background-color: #fff;
   position: absolute;
   top: 41px;
   z-index: 50;
-  display: inline;
+  display: none;
 }
 
-.all_category_item > li {
+.all-category-item > li {
   width: 210px;
   padding: 10px 0;
   font-size: 14px;
 }
 
-.all_category_item > li:hover {
-  background-color: #eaf5ff;
+.all-category-item > li:hover {
+  background-color: #f7f3f8;
 }
 
-.all_category_item > li:hover .sub_category_menu {
+.all-category-item > li:hover .sub-category-menu {
   opacity: 1;
-  visibility: hidden;
+  visibility: visible;
 }
 
-.all_category_item > li > a {
+.all-category-item > li > a {
   display: flex;
   align-items: center;
   width: 100%;
@@ -392,13 +369,13 @@ button {
   cursor: pointer;
 }
 
-.all_category_item > li > a:hover {
+.all-category-item > li > a:hover {
   font-weight: 500;
-  color: #064acb;
+  color: #5f0080;
 }
 
 /* 서브메뉴 */
-.sub_category_menu {
+.sub-category-menu {
   width: 100%;
   height: 812px;
   background-color: #f7f3f8;
@@ -410,17 +387,17 @@ button {
   transition: all 0.2s ease-in-out;
 }
 
-.sub_category_menu > li {
+.sub-category-menu > li {
   padding: 12px 0 12px 20px;
 }
 
-.sub_title:hover {
+.sub-title:hover {
   font-weight: 500;
-  color: #064acb;
-  border-bottom: 1px solid #064acb;
+  color: #5f0080;
+  border-bottom: 1px solid #5f0080;
 }
 
-.sub_recommend {
+.sub-recommend {
   width: 540px;
   display: flex;
   flex-wrap: wrap;
@@ -428,227 +405,227 @@ button {
   padding: 5px;
 }
 
-.sub_recommend_image {
+.sub-recommend-image {
   width: 110px;
 }
 
-.sub_recommend_image img {
+.sub-recommend-image img {
   width: 100%;
 }
 
 /* 메뉴 아이콘 */
-.digital {
-  background: url("/jaju/image/appliance.png") no-repeat 50% 50%;
+.vegetable {
+  background: url(./assets/menuicon/vege.png) no-repeat 50% 50%;
   background-position: 15px 0px;
   background-size: 25px 25px;
 }
 
-.digital:hover {
-  background: url() no-repeat 50% 50%;
+.vegetable:hover {
+  background: url(./assets/menuicon/vegeactive.png) no-repeat 50% 50%;
   background-position: 15px 0;
   background-size: 25px 25px;
 }
 
 .fruit {
-  background: url() no-repeat 50% 50%;
+  background: url(./assets/menuicon/fruit.png) no-repeat 50% 50%;
   background-position: 15px 0px;
   background-size: 25px 25px;
 }
 
 .fruit:hover {
-  background: url() no-repeat 50% 50%;
+  background: url(./assets/menuicon/fruitactive.png) no-repeat 50% 50%;
   background-position: 15px 0;
   background-size: 25px 25px;
 }
 
 .fish {
-  background: url() no-repeat 50% 50%;
+  background: url(./assets/menuicon/fish.png) no-repeat 50% 50%;
   background-position: 15px 0px;
   background-size: 25px 25px;
 }
 
 .fish:hover {
-  background: url() no-repeat 50% 50%;
+  background: url(./assets/menuicon/fishactive.png) no-repeat 50% 50%;
   background-position: 15px 0;
   background-size: 25px 25px;
 }
 
 .meat {
-  background: url() no-repeat 50% 50%;
+  background: url(./assets/menuicon/meat.png) no-repeat 50% 50%;
   background-position: 15px 0px;
   background-size: 25px 25px;
 }
 
 .meat:hover {
-  background: url() no-repeat 50% 50%;
+  background: url(./assets/menuicon/meatactive.png) no-repeat 50% 50%;
   background-position: 15px 0px;
   background-size: 25px 25px;
 }
 
 .soup {
-  background: url() no-repeat 50% 50%;
+  background: url(./assets/menuicon/soup.png) no-repeat 50% 50%;
   background-position: 15px 0px;
   background-size: 25px 25px;
 }
 
 .soup:hover {
-  background: url() no-repeat 50% 50%;
+  background: url(./assets/menuicon/soupactive.png) no-repeat 50% 50%;
   background-position: 15px 0px;
   background-size: 25px 25px;
 }
 
 .salad {
-  background: url() no-repeat 50% 50%;
+  background: url(./assets/menuicon/salad.png) no-repeat 50% 50%;
   background-position: 15px 0px;
   background-size: 25px 25px;
 }
 
 .salad:hover {
-  background: url() no-repeat 50% 50%;
+  background: url(./assets/menuicon/saladactive.png) no-repeat 50% 50%;
   background-position: 15px 0px;
   background-size: 25px 25px;
 }
 
 .sauce {
-  background: url() no-repeat 50% 50%;
+  background: url(./assets/menuicon/sauce.png) no-repeat 50% 50%;
   background-position: 15px 0px;
   background-size: 25px 25px;
 }
 
 .sauce:hover {
-  background: url() no-repeat 50% 50%;
+  background: url(./assets/menuicon/sauceactive.png) no-repeat 50% 50%;
   background-position: 15px 0px;
   background-size: 25px 25px;
 }
 
 .drink {
-  background: url() no-repeat 50% 50%;
+  background: url(./assets/menuicon/drink.png) no-repeat 50% 50%;
   background-position: 15px 0px;
   background-size: 25px 25px;
 }
 
 .drink:hover {
-  background: url() no-repeat 50% 50%;
+  background: url(./assets/menuicon/drinkactive.png) no-repeat 50% 50%;
   background-position: 15px 0px;
   background-size: 25px 25px;
 }
 
 .snack {
-  background: url() no-repeat 50% 50%;
+  background: url(./assets/menuicon/snack.png) no-repeat 50% 50%;
   background-position: 15px 0px;
   background-size: 25px 25px;
 }
 
 .snack:hover {
-  background: url() no-repeat 50% 50%;
+  background: url(./assets/menuicon/snackactive.png) no-repeat 50% 50%;
   background-position: 15px 0px;
   background-size: 25px 25px;
 }
 
 .deli {
-  background: url() no-repeat 50% 50%;
+  background: url(./assets/menuicon/deli.png) no-repeat 50% 50%;
   background-position: 15px 0px;
   background-size: 25px 25px;
 }
 
 .deli:hover {
-  background: url() no-repeat 50% 50%;
+  background: url(./assets/menuicon/deliactive.png) no-repeat 50% 50%;
   background-position: 15px 0px;
   background-size: 25px 25px;
 }
 
 .health {
-  background: url() no-repeat 50% 50%;
+  background: url(./assets/menuicon/health.png) no-repeat 50% 50%;
   background-position: 15px 0px;
   background-size: 25px 25px;
 }
 
 .health:hover {
-  background: url() no-repeat 50% 50%;
+  background: url(./assets/menuicon/healthactive.png) no-repeat 50% 50%;
   background-position: 15px 0px;
   background-size: 25px 25px;
 }
 
 .living {
-  background: url() no-repeat 50% 50%;
+  background: url(./assets/menuicon/living.png) no-repeat 50% 50%;
   background-position: 15px 0px;
   background-size: 25px 25px;
 }
 
 .living:hover {
-  background: url() no-repeat 50% 50%;
+  background: url(./assets/menuicon/livingactive.png) no-repeat 50% 50%;
   background-position: 15px 0px;
   background-size: 25px 25px;
 }
 
 .beauty {
-  background: url() no-repeat 50% 50%;
+  background: url(./assets/menuicon/beauty.png) no-repeat 50% 50%;
   background-position: 15px 0px;
   background-size: 25px 25px;
 }
 
 .beauty:hover {
-  background: url() no-repeat 50% 50%;
+  background: url(./assets/menuicon/beautyactive.png) no-repeat 50% 50%;
   background-position: 15px 0px;
   background-size: 25px 25px;
 }
 
 .kitchen {
-  background: url() no-repeat 50% 50%;
+  background: url(./assets/menuicon/kitchen.png) no-repeat 50% 50%;
   background-position: 15px 0px;
   background-size: 25px 25px;
 }
 
 .kitchen:hover {
-  background: url() no-repeat 50% 50%;
+  background: url(./assets/menuicon/kitchenactive.png) no-repeat 50% 50%;
   background-position: 15px 0px;
   background-size: 25px 25px;
 }
 
 .appliance {
-  background: url() no-repeat 50% 50%;
+  background: url(./assets/menuicon/appliance.png) no-repeat 50% 50%;
   background-position: 15px 0px;
   background-size: 25px 25px;
 }
 
 .appliance:hover {
-  background: url() no-repeat 50% 50%;
+  background: url(./assets/menuicon/applianceactive.png) no-repeat 50% 50%;
   background-position: 15px 0px;
   background-size: 25px 25px;
 }
 
 .kids {
-  background: url() no-repeat 50% 50%;
+  background: url(./assets/menuicon/kids.png) no-repeat 50% 50%;
   background-position: 15px 0px;
   background-size: 25px 25px;
 }
 
 .kids:hover {
-  background: url() no-repeat 50% 50%;
+  background: url(./assets/menuicon/kidsactive.png) no-repeat 50% 50%;
   background-position: 15px 0px;
   background-size: 25px 25px;
 }
 
 .pet {
-  background: url() no-repeat 50% 50%;
+  background: url(./assets/menuicon/pet.png) no-repeat 50% 50%;
   background-position: 15px 0px;
   background-size: 25px 25px;
 }
 
 .pet:hover {
-  background: url() no-repeat 50% 50%;
+  background: url(./assets/menuicon/petactive.png) no-repeat 50% 50%;
   background-position: 15px 0px;
   background-size: 25px 25px;
 }
 
 .recommend {
-  background: url() no-repeat 50% 50%;
+  background: url(./assets/menuicon/recommend.webp) no-repeat 50% 50%;
   background-position: 15px 0px;
   background-size: 25px 25px;
 }
 
 .recommend:hover {
-  background: url() no-repeat 50% 50%;
+  background: url(./assets/menuicon/recommendactive.webp) no-repeat 50% 50%;
   background-position: 15px 0px;
   background-size: 25px 25px;
 }
@@ -669,9 +646,9 @@ button {
 }
 
 .search-box input {
-  width: 240px;
+  width: 235px;
   height: 100%;
-  padding: 6px 50px 6px 14px;
+  padding: 6px 60px 6px 14px;
   border-radius: 50px;
   background-color: #f5f5f5;
   font-size: 14px;
@@ -684,7 +661,7 @@ button {
 .button-search {
   width: 30px;
   height: 30px;
-  background-image: url(/jaju/image/search.webp);
+  background-image: url(./assets/search.webp);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 30px 30px;
@@ -695,7 +672,7 @@ button {
 .button-coords {
   width: 35px;
   height: 35px;
-  background-image: url();
+  background-image: url(./assets/coordinates.svg);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 35px 35px;
@@ -704,7 +681,7 @@ button {
 .button-cart {
   width: 35px;
   height: 35px;
-  background-image: url();
+  background-image: url(./assets/cart.svg);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 35px 35px;
@@ -712,7 +689,7 @@ button {
 
 .button-coords:hover,
 .button-cart:hover {
-  color: #064acb;
+  color: #5f0080;
 }
 
 /* 슬라이드 */
@@ -759,39 +736,39 @@ button {
 }
 
 .slide01 {
-  background: url();
+  background: url(./assets/slide01.webp);
 }
 
 .slide02 {
-  background: url();
+  background: url(./assets/slide02.webp);
 }
 
 .slide03 {
-  background: url();
+  background: url(./assets/slide03.webp);
 }
 
 .slide04 {
-  background: url();
+  background: url(./assets/slide04.webp);
 }
 
 .slide05 {
-  background: url();
+  background: url(./assets/slide05.webp);
 }
 
 .slide06 {
-  background: url();
+  background: url(./assets/slide06.webp);
 }
 
 .slide07 {
-  background: url();
+  background: url(./assets/slide07.webp);
 }
 
 .slide08 {
-  background: url();
+  background: url(./assets/slide08.webp);
 }
 
 .slide09 {
-  background: url();
+  background: url(./assets/slide09.webp);
 }
 
 .button-direction {
@@ -805,7 +782,7 @@ button {
 .prev-button {
   width: 52px;
   height: 52px;
-  background-image: url();
+  background-image: url(./assets/prev.webp);
   background-repeat: no-repeat;
   background-size: 100%;
   position: absolute;
@@ -816,7 +793,7 @@ button {
 .next-button {
   width: 52px;
   height: 52px;
-  background-image: url();
+  background-image: url(./assets/next.webp);
   background-repeat: no-repeat;
   background-size: 100%;
   position: absolute;
@@ -827,13 +804,13 @@ button {
 /* 이상품 어떄요 recommendation */
 .recommend-product-image {
   height: 320px;
-  background-image: url();
+  background-image: url(./assets/food01.jpg);
 }
 
 .recommend-prev-button {
   width: 60px;
   height: 60px;
-  background-image: url();
+  background-image: url(./assets/product-button-prev.webp);
   background-repeat: no-repeat;
   background-size: 100%;
   position: absolute;
@@ -845,7 +822,7 @@ button {
 .recommend-next-button {
   width: 60px;
   height: 60px;
-  background-image: url(.);
+  background-image: url(./assets/product-button-next.webp);
   background-repeat: no-repeat;
   background-size: 100%;
   position: absolute;
@@ -887,7 +864,7 @@ button {
 
 .sale-alarm {
   padding: 0 0 4px 24px;
-  background-image: url();
+  background-image: url(./assets/clock.svg);
   background-repeat: no-repeat;
   background-size: 20px 100%;
   color: #cccccc;
@@ -901,7 +878,7 @@ button {
 .sale-product-image {
   height: 338px;
   margin-bottom: 8px;
-  background-image: url();
+  background-image: url(./assets/food05.jpg);
   position: relative;
 }
 
@@ -963,7 +940,7 @@ button {
 
 .event-product-image {
   height: 338px;
-  background-image: url();
+  background-image: url(./assets/snack01.jpg);
 }
 
 .event-product-detail {
@@ -983,7 +960,7 @@ button {
 /* 알뜰 상품 cheap */
 .cheap-product-image {
   height: 320px;
-  background-image: url();
+  background-image: url(./assets/food03.jpg);
   position: relative;
 }
 
@@ -1001,7 +978,7 @@ button {
 .cheap-prev-button {
   width: 60px;
   height: 60px;
-  background-image: url();
+  background-image: url(./assets/product-button-prev.webp);
   background-repeat: no-repeat;
   background-size: 100%;
   position: absolute;
@@ -1013,7 +990,7 @@ button {
 .cheap-next-button {
   width: 60px;
   height: 60px;
-  background-image: url();
+  background-image: url(./assets/product-button-next.webp);
   background-repeat: no-repeat;
   background-size: 100%;
   position: absolute;
@@ -1030,7 +1007,7 @@ button {
   display: block;
   height: 140px;
   margin: 0 12px;
-  background-image: url();
+  background-image: url(./assets/festa.webp);
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center center;
@@ -1073,12 +1050,12 @@ button {
 
 .md-category-items li a:hover {
   background-color: #f7f3f8;
-  color: #064acb;
+  color: #5f0080;
 }
 
 .md-category-items li a:focus,
 .md-category-items li a:active {
-  background-color: #064acb;
+  background-color: #5f0080;
   color: #f7f3f8;
 }
 
@@ -1100,7 +1077,7 @@ button {
   width: 20px;
   height: 20px;
   padding: 4px;
-  background-image: url();
+  background-image: url(./assets/more-arrow.webp);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 20px 20px;
@@ -1109,7 +1086,7 @@ button {
 .md-prev-button {
   width: 60px;
   height: 60px;
-  background-image: url();
+  background-image: url(./assets/product-button-prev.webp);
   background-repeat: no-repeat;
   background-size: 100%;
   position: absolute;
@@ -1121,7 +1098,7 @@ button {
 .md-next-button {
   width: 60px;
   height: 60px;
-  background-image: url();
+  background-image: url(./assets/product-button-next.webp);
   background-repeat: no-repeat;
   background-size: 100%;
   position: absolute;
@@ -1158,13 +1135,13 @@ button {
 
 .new-product-image {
   height: 320px;
-  background-image: url();
+  background-image: url(./assets/food01.jpg);
 }
 
 .new-prev-button {
   width: 60px;
   height: 60px;
-  background-image: url();
+  background-image: url(./assets/product-button-prev.webp);
   background-repeat: no-repeat;
   background-size: 100%;
   position: absolute;
@@ -1176,7 +1153,7 @@ button {
 .new-next-button {
   width: 60px;
   height: 60px;
-  background-image: url();
+  background-image: url(./assets/product-button-next.webp);
   background-repeat: no-repeat;
   background-size: 100%;
   position: absolute;
@@ -1191,7 +1168,7 @@ button {
 
 .popular-product-image {
   height: 320px;
-  background-image: url();
+  background-image: url(./assets/food03.jpg);
   position: relative;
 }
 
@@ -1209,7 +1186,7 @@ button {
 .popular-prev-button {
   width: 60px;
   height: 60px;
-  background-image: url();
+  background-image: url(./assets/product-button-prev.webp);
   background-repeat: no-repeat;
   background-size: 100%;
   position: absolute;
@@ -1221,7 +1198,7 @@ button {
 .popular-next-button {
   width: 60px;
   height: 60px;
-  background-image: url();
+  background-image: url(./assets/product-button-next.webp);
   background-repeat: no-repeat;
   background-size: 100%;
   position: absolute;
@@ -1247,14 +1224,14 @@ button {
 
 .must-have-product-image {
   height: 320px;
-  background-image: url();
+  background-image: url(/jaju/used_product/hat.jpg);
   position: relative;
 }
 
 .must-prev-button {
   width: 60px;
   height: 60px;
-  background-image: url();
+  background-image: url(./assets/product-button-prev.webp);
   background-repeat: no-repeat;
   background-size: 100%;
   position: absolute;
@@ -1266,7 +1243,7 @@ button {
 .must-next-button {
   width: 60px;
   height: 60px;
-  background-image: url();
+  background-image: url(./assets/product-button-next.webp);
   background-repeat: no-repeat;
   background-size: 100%;
   position: absolute;
@@ -1277,13 +1254,13 @@ button {
 /* 오프라인 맛집 offline-restaurant */
 .offline-product-image {
   height: 320px;
-  background-image: url();
+  background-image: url(./assets/food03.jpg);
 }
 
 .offline-prev-button {
   width: 60px;
   height: 60px;
-  background-image: url();
+  background-image: url(./assets/product-button-prev.webp);
   background-repeat: no-repeat;
   background-size: 100%;
   position: absolute;
@@ -1295,7 +1272,7 @@ button {
 .offline-next-button {
   width: 60px;
   height: 60px;
-  background-image: url();
+  background-image: url(./assets/product-button-next.webp);
   background-repeat: no-repeat;
   background-size: 100%;
   position: absolute;
@@ -1311,7 +1288,7 @@ button {
 .recipe-image {
   width: 100%;
   height: 225px;
-  background-image: url();
+  background-image: url(./assets/snack03.jpg);
 }
 
 .recipe .product-name {
@@ -1321,7 +1298,7 @@ button {
 .recipe-prev-button {
   width: 60px;
   height: 60px;
-  background-image: url();
+  background-image: url(./assets/product-button-prev.webp);
   background-repeat: no-repeat;
   background-size: 100%;
   position: absolute;
@@ -1333,7 +1310,7 @@ button {
 .recipe-next-button {
   width: 60px;
   height: 60px;
-  background-image: url();
+  background-image: url(./assets/product-button-next.webp);
   background-repeat: no-repeat;
   background-size: 100%;
   position: absolute;
@@ -1357,7 +1334,7 @@ button {
   display: block;
   width: 100%;
   height: 175px;
-  background-image: url();
+  background-image: url(./assets/instagram.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 50%;
@@ -1378,7 +1355,7 @@ button {
   display: block;
   height: 160px;
   margin: 0 12px;
-  background-image: url();
+  background-image: url(./assets//footer-image.webp);
   background-size: 100%;
   background-position: center center;
 }
@@ -1509,7 +1486,7 @@ button {
 }
 
 .company-info li a {
-  color: #064acb;
+  color: #5f0080;
 }
 
 .copyrights {
@@ -1541,7 +1518,7 @@ button {
   display: block;
   width: 60px;
   height: 60px;
-  background: url() no-repeat;
+  background: url(./assets/top.webp) no-repeat;
   background-size: 100%;
   position: fixed;
   right: 30px;
@@ -1663,11 +1640,11 @@ button {
 
   .all-category:hover {
     font-weight: 400;
-    color: #064acb;
+    color: #5f0080;
     border-bottom: none;
   }
 
-  .all_category_item {
+  .all-category-item {
     display: block;
     top: -25px;
     left: -310px;
@@ -1675,16 +1652,16 @@ button {
     transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .all_category_item > li {
+  .all-category-item > li {
     width: 280px;
   }
 
-  .all_category_item > li:hover .sub_category_menu {
+  .all-category-item > li:hover .sub-category-menu {
     opacity: 0;
     visibility: hidden;
   }
 
-  .all_category_item > li > a {
+  .all-category-item > li > a {
     margin-bottom: 10px;
   }
 
@@ -1720,7 +1697,7 @@ button {
     display: none;
   }
 
-  .sub_category_menu {
+  .sub-category-menu {
     height: auto;
     max-height: 0;
     background-color: #f7f3f8;
@@ -1728,16 +1705,16 @@ button {
     transition: none;
   }
 
-  .sub_category_menu > li {
+  .sub-category-menu > li {
     padding: 12px 0 12px 50px;
   }
 
-  .sub_recommend {
+  .sub-recommend {
     width: 280px;
     display: block;
   }
 
-  .sub_recommend_image {
+  .sub-recommend-image {
     display: none;
   }
 
@@ -1783,7 +1760,7 @@ button {
   }
 
   .sale-product-image {
-    background: url();
+    background: url(./assets/food06.jpg);
     background-size: 100%;
     background-position: center center;
   }

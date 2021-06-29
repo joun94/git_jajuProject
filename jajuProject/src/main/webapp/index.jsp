@@ -7,10 +7,20 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="/jaju/css/test_index.css">
-<style type="text/css">
 
-</style>
+<!-- 제이쿼리 불러오기 -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+<!-- Slick 불러오기 -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
+<link rel="stylesheet" href="/jaju/css/test_index.css">
+</head>
 </head>
 <body> <!-- Add your content of header -->
 
@@ -33,5 +43,5 @@
 	</div>		
 
 </body>
-<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </html>
