@@ -7,7 +7,6 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import mypage.bean.MessageDTO;
 import saleboard.bean.SaleboardCommentDTO;
 import saleboard.bean.SaleboardCommentPaging;
 import saleboard.bean.SaleboardDTO;
@@ -378,23 +377,109 @@ public class SaleboardServiceImpl implements SaleboardService {
 	}
 
 	@Override
-	public void saleStateModify(Map<String,String> map)  {
-		saleboardDAO.saleStateModify(map);
-	}
-	/*-----*/
-	@Override
-	public List<MessageDTO> salebuyerFindMessage(int sale_seq) {
-		return saleboardDAO.salebuyerFindMessage(sale_seq);
-	}
-
-	@Override
-	public List<SaleboardCommentDTO> salebuyerFindComment(int sale_seq) {
-		return saleboardDAO.salebuyerFindComment(sale_seq);
-	}
-
-	@Override
-	public void salebuyerConfirmation(Map<String, String> map) {
-		saleboardDAO.salebuyerConfirmation(map);
+	public List<SaleboardDTO> getSaleboardListCategory(Map<String, String> map) {
+		int pg = Integer.parseInt(map.get("pg"));
 		
+		int endNum = pg * 15;
+		int startNum = endNum - 14;
+		
+		
+		map.put("startNum", startNum+"");
+		map.put("endNum", endNum +"");
+		
+		return saleboardDAO.getSaleboardListCategory(map);
 	}
+
+	@Override
+	public SaleboardPaging saleboardPagingCategory(Map<String, String> map) {
+		int pg = Integer.parseInt(map.get("pg"));
+		saleboardPaging.setCurrentPage(pg);
+		saleboardPaging.setPageBlock(3);
+		saleboardPaging.setPageSize(15);
+		String sale_category = map.get("sale_category"); 
+		int totalA = saleboardDAO.getTotalCategory(sale_category);
+		saleboardPaging.setTotalA(totalA);		
+		
+		saleboardPaging.makePagingHTML();
+		
+		return saleboardPaging;
+	}
+
+	@Override
+	public List<SaleboardDTO> getSaleboardListLoginCategory(Map<String, String> map) {
+		int pg = Integer.parseInt(map.get("pg"));
+		
+		int endNum = pg * 15;
+		int startNum = endNum - 14;
+				
+		map.put("startNum", startNum+"");
+		map.put("endNum", endNum +"");
+		
+		return saleboardDAO.getSaleboardListLoginCategory(map);
+	}
+
+	@Override
+	public SaleboardPaging saleboardPagingLoginCategory(Map<String, String> map) {
+		int pg = Integer.parseInt(map.get("pg"));
+		saleboardPaging.setCurrentPage(pg);
+		saleboardPaging.setPageBlock(3);
+		saleboardPaging.setPageSize(15);
+		int totalA = saleboardDAO.getTotalLoginCategory(map);
+		saleboardPaging.setTotalA(totalA);		
+		
+		saleboardPaging.makePagingHTML();
+		
+		return saleboardPaging;
+	}
+
+	@Override
+	public List<SaleboardDTO> getSearchSaleboardListCategory(Map<String, String> map) {
+		int endNum = Integer.parseInt(map.get("pg")) * 15;
+		int startNum = endNum - 14;
+		
+		map.put("startNum", startNum+"");
+		map.put("endNum", endNum +"");
+		
+		return saleboardDAO.getSearchSaleboardListCategory(map);
+	}
+
+	@Override
+	public SaleboardPaging searchSaleboardPagingCategory(Map<String, String> map) {
+		int pg = Integer.parseInt(map.get("pg"));
+		saleboardPaging.setCurrentPage(pg);
+		saleboardPaging.setPageBlock(3);
+		saleboardPaging.setPageSize(15);
+		int totalA = saleboardDAO.getSearchTotalCategory(map);
+		saleboardPaging.setTotalA(totalA);		
+		
+		saleboardPaging.makePagingHTML();
+		
+		return saleboardPaging;
+	}
+
+	@Override
+	public List<SaleboardDTO> getSearchSaleboardListLoginCategory(Map<String, String> map) {
+		int endNum = Integer.parseInt(map.get("pg")) * 15;
+		int startNum = endNum - 14;
+		
+		map.put("startNum", startNum+"");
+		map.put("endNum", endNum +"");
+		
+		return saleboardDAO.getSearchSaleboardListLoginCategory(map);
+	}
+
+	@Override
+	public SaleboardPaging searchSaleboardPagingLoginCategory(Map<String, String> map) {
+		int pg = Integer.parseInt(map.get("pg"));
+		saleboardPaging.setCurrentPage(pg);
+		saleboardPaging.setPageBlock(3);
+		saleboardPaging.setPageSize(15);
+		int totalA = saleboardDAO.getSearchTotalLoginCategory(map);
+		saleboardPaging.setTotalA(totalA);		
+		
+		saleboardPaging.makePagingHTML();
+		
+		return saleboardPaging;
+	}
+
 }

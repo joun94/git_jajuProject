@@ -206,7 +206,6 @@ option {
     min-height: 1.2em;
 }
 .xans-board-modify table select {
-	width: 90px;
 	height: auto;
     border-radius: 5px;
     padding: 6px 5px;
@@ -537,12 +536,4 @@ ol, ul {
     margin-bottom: 5px;
     background: #f8f8f8;
     padding: 5px;
-}
-#close_btn{
-	height: 30px;
-    width: 90px;
-	background-color: #617aad;
-    color: #fff;
-    border:none;
-    border-radius: 3px;
 }
