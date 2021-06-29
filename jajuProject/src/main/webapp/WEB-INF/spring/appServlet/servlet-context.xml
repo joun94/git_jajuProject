@@ -21,6 +21,8 @@
 	<resources mapping="/jajuImage/**" location="/jajuImage/" />
 	<resources mapping="/used_product/**" location="/used_product/" />
 	<resources mapping="/storage/**" location="/storage/" />
+	<resources mapping="/manager_css/**" location="/manager_css/" />
+	<resources mapping="/manager_js/**" location="/manager_js/" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

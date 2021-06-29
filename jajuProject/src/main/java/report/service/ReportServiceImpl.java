@@ -9,6 +9,7 @@ import org.apache.commons.collections4.map.HashedMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import member.bean.MemberDTO;
 import report.bean.CommentDTO;
 import report.bean.ReportDTO;
 import report.bean.ReportPaging;
@@ -22,16 +23,18 @@ public class ReportServiceImpl implements ReportService {
 	private HttpSession session;
 	@Autowired
 	private ReportPaging reportPaging;
-
+	
+	
 	@Override
-	public ReportDTO getReportInformation(Map<String, String> map) {
+	public MemberDTO getMemberName(String report_id) {
+		return reportDAO.getMemberName(report_id);
 		
-		return reportDAO.getReportInformation(map);
 	}
 	
 	@Override
 	public void reportWrite(ReportDTO reportDTO) {
-		//System.out.println(reportDTO);
+		//System.out.println("1");
+		System.out.println(reportDTO);
 		reportDAO.reportWrite(reportDTO);
 	}
 	

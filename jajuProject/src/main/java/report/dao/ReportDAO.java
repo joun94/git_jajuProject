@@ -3,13 +3,14 @@ package report.dao;
 import java.util.List;
 import java.util.Map;
 
+import member.bean.MemberDTO;
 import report.bean.CommentDTO;
 import report.bean.ReportDTO;
 
 public interface ReportDAO {
-
-	public ReportDTO getReportInformation(Map<String, String> map);
 	
+	public MemberDTO getMemberName(String report_id);
+
 	public void reportWrite(ReportDTO reportDTO);
 
 	public List<ReportDTO> getReportList(Map<String, String> map);

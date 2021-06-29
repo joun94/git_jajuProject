@@ -3,15 +3,16 @@ package report.service;
 import java.util.List;
 import java.util.Map;
 
+import member.bean.MemberDTO;
 import report.bean.CommentDTO;
 import report.bean.ReportDTO;
 import report.bean.ReportPaging;
 
 public interface ReportService {
 	
-	public ReportDTO getReportInformation(Map<String, String> map);
-	
 	public void reportWrite(ReportDTO reportDTO);
+	
+	public MemberDTO getMemberName(String report_id);
 	
 	public List<ReportDTO> getReportList(String pg, String report_id);
 

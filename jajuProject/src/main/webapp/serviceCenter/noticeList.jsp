@@ -4,9 +4,10 @@
 <html>
 <head>
 <link rel="stylesheet" href="/jaju/css/noticeList.css" />
-<jsp:include page="/serviceCenter/serviceMenu.jsp"/>
 </head>
 <body>
+<div style="width: 1050px; margin: auto;" >
+<jsp:include page="/serviceCenter/serviceMenu.jsp"/>
 
 <input type="hidden" id="notice_seq" name="notice_seq" value="${notice_seq}">
 <input type="hidden" id="pg" value="${pg}">
@@ -70,6 +71,7 @@
 </div>
 
 </form>
+</div>
 </div>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/jaju/js/noticeList.js"></script>

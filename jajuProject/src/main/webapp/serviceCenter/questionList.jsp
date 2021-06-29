@@ -3,8 +3,9 @@
     
 <link rel="stylesheet" href="/jaju/css/serviceMenu.css" /> 
 <link rel="stylesheet" href="/jaju/css/question.css" />    
-<jsp:include page="/serviceCenter/serviceMenu.jsp"/>
 <form name="frmList">
+<div style="width: 1080px; margin: auto;">
+<jsp:include page="/serviceCenter/serviceMenu.jsp"/>
 <input type="hidden" id="question_seq" name="question_seq" value="${question_seq}">
 <input type="hidden" id="pg" name="pg" value="${pg}">	
 <div class="page_section">
@@ -78,6 +79,7 @@
 		</table>
 		</div>
 		</div>
+	</div>
 </form>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/jaju/js/questionList.js"></script>

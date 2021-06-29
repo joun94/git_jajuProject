@@ -4,24 +4,23 @@
 <html>
 <head>
 <link rel="stylesheet" href="/jaju/css/reportWriteForm.css" />
-<jsp:include page="/serviceCenter/serviceMenu.jsp"/>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-
+<div style="width: 1070px; margin: auto;" >
+<jsp:include page="/serviceCenter/serviceMenu.jsp"/>
 <div class="page_section section_qna">
 <div class="head_aticle">
 <h2 class="tit">신고 게시판</h2>
 </div>
 
 <form name="reportWriteForm" id="reportWriteForm" style="height: 100%;">
-<input type="hidden" id="report_seq" name="report_seq" value="${report_seq}">
 <input type="hidden" id="pg" name="pg" value="${pg}">
-<input type="text" id="sale_seq" name="sale_seq" value="${param.sale_seq}">
-<input type="text" id="sale_id" name="sale_id" value="${param.sale_id}">
-<input type="text" id="report_subject" name="report_subject" value="${sale_subject}">
-<input type="text" id="report_name" name="report_name" value="${report_name}">
+<input type="hidden" id="sale_seq" name="sale_seq" value="${param.sale_seq}">
+<input type="hidden" id="sale_id2" name="sale_id2" value="${param.sale_id}"><%-- 받아오는 sale_id --%>
+<input type="hidden" id="report_id" name="report_id" value="${memId}">
+<input type="hidden" id="report_name" name="report_name">
 <div class="xans-board-write">
 
 
@@ -51,7 +50,7 @@
 <tr>
 <th class="input_txt">신고 아이디</th>
 	<td>
-		<input type="text" id="sale_id" name="sale_id" style="background-color:#dddddd; color: ##4c4c4c; width:25%" value="kimmin425" readonly="readonly">
+		<input type="text" id="sale_id" name="sale_id" style="background-color:#dddddd; color: ##4c4c4c; width:25%" readonly="readonly">
 		<div style="position:relative;z-index:1">
 			<iframe id="ifm_order" frameborder="0" scrolling="no" style="display:none;position:absolute;width:560px;height:380px;background-color:#fff;position:absolute;left:0;top:0;border:1px solid #000"></iframe>
 		</div>
@@ -60,7 +59,7 @@
 <tr>
 <th class="input_txt">신고글</th>
 	<td>
-		<input type="text" id="sale_subject" name="sale_subject" style="background-color:#dddddd; color: ##4c4c4c; width:25%" value="광고 홍보성 글이 시부렁댄다." readonly="readonly">
+		<input type="text" id="sale_subject" name="sale_subject" style="background-color:#dddddd; color: ##4c4c4c; width:25%" readonly="readonly">
 		<div style="position:relative;z-index:1">
 			<iframe id="ifm_order" frameborder="0" scrolling="no" style="display:none;position:absolute;width:560px;height:380px;background-color:#fff;position:absolute;left:0;top:0;border:1px solid #000"></iframe>
 		</div>
@@ -122,6 +121,7 @@
 		</tr>
 	</tbody>
 </table>
+</div>
 </form>
 </div>
 </div>

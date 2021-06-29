@@ -3,12 +3,12 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="memberreportSQL">
- 	
- 	<!-- 글쓰기에 신고아이디, 신고글 뿌리기 -->
- 	<select id="getReportInformation" parameterType="java.util.Map" resultType="report">
- 		select * from memberreport where report_seq=#{report_seq}
- 	</select>
- 	
+	
+	<!-- id로 name값 가져오기 -->
+	<select id="getMemberName" parameterType="String" resultType="member">
+		select * from jajuMember where member_id=#{member_id}
+	</select>
+	
 	<!-- 글쓰기 -->
  	<insert id="reportWrite" parameterType="report">
  		insert into memberreport values (#{sale_seq},

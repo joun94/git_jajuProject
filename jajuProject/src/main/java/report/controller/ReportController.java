@@ -21,6 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import inquire.bean.InquireDTO;
+import member.bean.MemberDTO;
 import report.bean.CommentDTO;
 import report.bean.ReportDTO;
 import report.bean.ReportPaging;
@@ -38,39 +39,20 @@ public class ReportController {
 		return "/index";
 	}
 	
-	@RequestMapping(value="getReportInformation", method=RequestMethod.POST)
+	@RequestMapping(value="getMemberName", method=RequestMethod.POST)
 	@ResponseBody
-	public ModelAndView getReportInformation(@RequestParam String report_seq,
-											 @RequestParam String sale_seq,
-											 @RequestParam String sale_id,
-											 @RequestParam Map<String, String> map) {
-
-		System.out.println("1");
-		System.out.println(report_seq);
-		System.out.println(sale_seq);
-		System.out.println(sale_id);
-		System.out.println(map);
+	public ModelAndView getMemberName(@RequestParam String report_id) {
 		
-		ReportDTO reportDTO = reportService.getReportInformation(map);
+		MemberDTO memberDTO = reportService.getMemberName(report_id);
 		
-		System.out.println("2");
-		System.out.println(report_seq);
-		System.out.println(sale_seq);
-		System.out.println(sale_id);
-		System.out.println(map);
-		                                                   
 		ModelAndView mav = new ModelAndView();
-		System.out.println(map.get("report_seq"));
-		mav.addObject("report_seq", map.get("report_seq"));
-		mav.addObject("sale_seq", map.get("sale_seq"));
-		mav.addObject("sale_id", map.get("sale_id"));
-		//mav.addObject("report_subject", map.get("report_subject"));
-		//mav.addObject("report_name", map.get("report_name"));
-		mav.addObject("reportDTO", reportDTO);
+		mav.addObject("memberDTO", memberDTO);
 		mav.setViewName("jsonView");
 		return mav;
+		
 	}
-
+	
+	
 	@RequestMapping(value="reportWrite", method=RequestMethod.POST)
 	@ResponseBody
 	public void reportsWrite(@ModelAttribute ReportDTO reportDTO,

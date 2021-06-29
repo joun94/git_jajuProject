@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import member.bean.MemberDTO;
 import report.bean.CommentDTO;
 import report.bean.ReportDTO;
 
@@ -16,16 +17,18 @@ import report.bean.ReportDTO;
 public class ReportDAOMybatis implements ReportDAO {
 	@Autowired
 	private SqlSession sqlSession;
-
+	
 	@Override
-	public ReportDTO getReportInformation(Map<String, String> map) {
-		return sqlSession.selectOne("memberreportSQL.getReportInformation", map);
+	public MemberDTO getMemberName(String report_id) {
+		return sqlSession.selectOne("memberreportSQL.getMemberName", report_id);
+		
 	}
 	
 	@Override
 	public void reportWrite(ReportDTO reportDTO) {
 		sqlSession.insert("memberreportSQL.reportWrite", reportDTO);
-		
+		//System.out.println("2");
+		System.out.println(reportDTO);
 	}
 
 	@Override

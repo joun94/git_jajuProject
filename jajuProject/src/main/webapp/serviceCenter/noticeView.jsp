@@ -4,7 +4,6 @@
 <html>
 <head>
 <link rel="stylesheet" href="/jaju/css/noticeView.css" />
-<jsp:include page="/serviceCenter/serviceMenu.jsp"/>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -12,6 +11,8 @@
 <form id="noticeViewForm" name="noticeViewForm">
 <input type="hidden" id="notice_seq" name="notice_seq" value="${notice_seq}">
 <input type="hidden" id="pg" name="pg" value="${pg}">
+<div style="width: 1050px; margin: auto;" >
+<jsp:include page="/serviceCenter/serviceMenu.jsp"/>
 <div id="wrap">
 <div id="pos_scroll"></div>
 <div id="container" style="float:left; margin-left:40px; margin-top:-50px; width:800px;">
@@ -146,6 +147,7 @@
 		</tbody>
 		</table>
 	</div>
+</div>
 </div>
 </div>
 </div>

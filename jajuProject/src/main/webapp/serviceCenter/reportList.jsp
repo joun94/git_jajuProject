@@ -9,7 +9,8 @@
 <form id="reportList">
 <input type="hidden" id="report_seq" name="report_seq" value="${report_seq}">
 <input type="hidden" id="pg" name="pg" value="${pg}">	
-<input type="hidden" id="report_id" name="report_id" value="${memId}">
+<input type="hidden" id="report_id" name="report_id" value="${sessionScope.memId}">
+<div style="width: 1050px; margin: auto;" >
 <div id="total">
 	<div class="page_section section_qna">
 		<div class="head_aticle">
@@ -37,19 +38,20 @@
 		신고 내역이 존재하지 않습니다.
 	</div>
 		
-	<div style="position:relative;">
+<!-- 	<div style="position:relative;">
 		<div style="position:absolute;right:0;top:60px;">
 			<a href="/jaju/serviceCenter/reportWriteForm">
 				<span class="bhs_buttonsm yb" style="float:none;">글쓰기</span>
 			</a>
 		</div>
-	</div>
+	</div> -->
 	
 		<div class="layout-pagination">
 			<div class="pagediv"></div>
 		</div>
 		<br><br><br><br><br>
 	</div>
+</div>
 </div>
 </form>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>

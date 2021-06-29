@@ -5,13 +5,13 @@
 <head>
 <link rel="stylesheet" href="/jaju/css/serviceMenu.css" /> 
 <link rel="stylesheet" href="/jaju/css/noticeWriteForm.css" />    
-<jsp:include page="/serviceCenter/serviceMenu.jsp"/>
 
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-
+<div style="width: 1050px; margin: auto;" >
+<jsp:include page="/serviceCenter/serviceMenu.jsp"/>
 <div class="page_section section_qna">
 <div class="head_aticle">
 <h2 class="tit">공지사항 글쓰기</h2>
@@ -83,7 +83,7 @@
 </div>
 
 </div>
-
+</div>
 </body>
 <script type = "text/javascript" src = "http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/jaju/js/noticeWriteForm.js"></script>

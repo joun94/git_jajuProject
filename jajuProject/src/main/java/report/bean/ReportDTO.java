@@ -2,8 +2,6 @@ package report.bean;
 
 import java.util.Date;
 
-import org.springframework.beans.factory.annotation.Value;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.Data;
@@ -14,7 +12,7 @@ public class ReportDTO {
 	private String sale_id; //신고 아이디
 	private int report_seq; //글번호
 	private String report_id; //아이디
-	private String report_name = "호랑이"; //이름
+	private String report_name; //이름
 	private String reportType; //신고 유형
 	private String report_tal; //전화번호
 	private String report_subject; //신고 제목

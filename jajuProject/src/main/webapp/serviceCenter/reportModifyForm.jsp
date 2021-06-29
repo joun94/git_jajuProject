@@ -4,12 +4,12 @@
 <html>
 <head>
 <link rel="stylesheet" href="/jaju/css/reportModifyForm.css" />
-<jsp:include page="/serviceCenter/serviceMenu.jsp"/>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-
+<div style="width: 1050px; margin: auto;" >
+<jsp:include page="/serviceCenter/serviceMenu.jsp"/>
 <div class="page_section section_qna">
 <div class="head_aticle">
 <h2 class="tit">신고 게시판</h2>
@@ -17,9 +17,9 @@
 
 <div class="xans-board-write">
 <form id="reportModifyForm" name="reportModifyForm" style="height: 100%;">
-	<input type="hidden" id="pg" name="pg" value="${pg}">
-	<input type="hidden" id="report_seq" name="report_seq" value="${report_seq}">
-
+<input type="hidden" id="pg" name="pg" value="${pg}">
+<input type="hidden" id="report_seq" name="report_seq" value="${report_seq}">
+<input type="text" id="sale_seq" name="sale_seq" value="${param.sale_seq}">
 <table id="table_after" class="boardWrite2" width="100%">
 <colgroup><col width="14%" align="right"></colgroup>
 <tbody>
@@ -46,7 +46,7 @@
 <tr>
 <th class="input_txt">신고 아이디</th>
 	<td>
-		<input type="text" id="sale_id" name="sale_id" style="background-color:#dddddd; color: ##4c4c4c; width:25%" value="kimmin425" readonly="readonly">
+		<input type="text" id="sale_id" name="sale_id" style="background-color:#dddddd; color: ##4c4c4c; width:25%" readonly="readonly">
 		<div style="position:relative;z-index:1">
 			<iframe id="ifm_order" frameborder="0" scrolling="no" style="display:none;position:absolute;width:560px;height:380px;background-color:#fff;position:absolute;left:0;top:0;border:1px solid #000"></iframe>
 		</div>
@@ -55,7 +55,7 @@
 <tr>
 <th class="input_txt">신고글</th>
 	<td>
-		<input type="text" id="" name="" style="background-color:#dddddd; color: ##4c4c4c; width:25%" value="광고 홍보성 글이 시부렁댄다." readonly="readonly">
+		<input type="text" id="sale_subject" name="sale_subject" style="background-color:#dddddd; color: ##4c4c4c; width:25%" value="광고 홍보성 글이 시부렁댄다." readonly="readonly">
 		<div style="position:relative;z-index:1">
 			<iframe id="ifm_order" frameborder="0" scrolling="no" style="display:none;position:absolute;width:560px;height:380px;background-color:#fff;position:absolute;left:0;top:0;border:1px solid #000"></iframe>
 		</div>
@@ -147,6 +147,7 @@
 </form>
 </div>
 
+</div>
 </div>
 </body>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>

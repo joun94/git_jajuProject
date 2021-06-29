@@ -15,6 +15,7 @@
 
 <input type="hidden" id="comment_seq" name="comment_seq" value="${comment_seq}">
 <input type="hidden" id="pg" name="pg" value="${pg}">
+<div style="width: 1050px; margin: auto;" >
 <div id="wrap">
 <div id="pos_scroll"></div>
 <div id="container" style="float:left; margin-left:40px; margin-top:-50px; width:800px;">
@@ -197,6 +198,7 @@
 		</tbody>
 		</table>
 	</div>
+</div>
 </div>
 </div>
 </div>

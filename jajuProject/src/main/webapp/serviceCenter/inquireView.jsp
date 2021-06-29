@@ -4,7 +4,6 @@
 <html>
 <head>
 <link rel="stylesheet" href="/jaju/css/inquireView.css" />
-<jsp:include page="/serviceCenter/serviceMenu.jsp"/>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -12,7 +11,8 @@
 <form name = "inquireView" id = "inquireView">
 <input type="hidden" name="seq" id = "inquiry_seq" value= "${seq}">
 <input type="hidden" name="pg" value="${pg}">
-
+<div style="width: 1050px; margin: auto;" >
+<jsp:include page="/serviceCenter/serviceMenu.jsp"/>
 <div id="wrap">
 <div id="pos_scroll"></div>
 <div id="container" style="float:left; margin-left:40px; margin-top:-50px; width:800px;">
@@ -127,6 +127,7 @@
 		</tbody>
 		</table>
 	</div>
+</div>
 </div>
 </div>
 </div>

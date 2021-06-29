@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-
 <link rel="stylesheet" href="/jaju/css/serviceMenu.css" /> 
 <link rel="stylesheet" href="/jaju/css/inquireList.css" />    
-<jsp:include page="/serviceCenter/serviceMenu.jsp"/>
-
 
 <form id="inqureList">
+<div style="width: 1050px; margin: auto;" >
+<jsp:include page="/serviceCenter/serviceMenu.jsp"/>
 <input type = "hidden" name="pg" id = "pg" value = "${param.pg }">
 <div id="total">
 	<div class="page_section section_qna">
@@ -46,6 +45,7 @@
 		</div>
 		<br><br><br><br><br>
 	</div>
+</div>
 </div>
 </form>
 <script type = "text/javascript" src = "http://code.jquery.com/jquery-3.6.0.min.js"></script>
