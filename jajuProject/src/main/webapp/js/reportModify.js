@@ -15,6 +15,7 @@ $(function(){
 			$('#reportType').val(data.reportDTO.reportType).prop('select', true);
 			$('#report_subject').val(data.reportDTO.report_subject);
 			$('#sale_id').val(data.reportDTO.sale_id);
+			$('#sale_subject').val(data.reportDTO.sale_subject);
 			//신고 글 제목은 sale_seq 값을 가지고 와서 불러온다.
 			$('#report_tal').val(data.reportDTO.report_tal);
 			$('#report_content').text(data.reportDTO.report_content);
@@ -43,6 +44,7 @@ $(function(){
 		error: function(err){
 	         console.log(err);
 	    }
+	
 	});
 });
 

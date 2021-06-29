@@ -1,24 +1,41 @@
 //글쓰기에 신고아이디, 신고글 뿌리기
 $(function(){
+	$('#sale_id').val($('#sale_id2').val());
 	$.ajax({
 		type: 'post',
-		url: '/jaju/serviceCenter/getReportInformation',
-		data: {'report_seq' : $('#report_seq').val(),
-			   'sale_seq' : $('#sale_seq').val(),
-			   'sale_id' : $('#sale_id').val()},
+		url: '/jaju/saleboard/getSaleboardViewReview',
+		data: {'sale_seq' : $('#sale_seq').val()},
 		dataType: 'json',
 		success: function(data){
-			alert(JSON.stringify(data));
+			//alert(JSON.stringify(data));
 			
-		$('#sale_id').text(data.reportDTO.sale_id);
-		//$('#sale_subject').text(data.reportDTO.report_subject);
+		$('#sale_subject').val(data.saleboardDTO.sale_subject);
 		
 		},
 		error: function(err){
 			console.log(err);
 		}
 	});
+	
+	$.ajax({
+		type: 'post',
+		url: '/jaju/serviceCenter/getMemberName',
+		data: {'report_id' : $('#report_id').val()},
+		dataType: 'json',
+		success: function(data){
+			//alert(JSON.stringify(data));
+			
+			$('#report_name').val(data.memberDTO.member_name);
+			
+			
+		},
+		error: function(err){
+			console.log(err);
+		}
+	});
 });
+
+
 
 
 //글쓰기
@@ -68,7 +85,6 @@ $('#bhs_button').click(function(){
 		});
 	}
 });
-
 
 
 //휴대폰 번호 유효성 검사
