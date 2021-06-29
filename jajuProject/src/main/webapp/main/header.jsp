@@ -112,13 +112,13 @@
 	          </li>
 	          
 	          <li class="new-product-category">
-	            <a href="/jaju/saleboard/saleboardList">판매게시글</a>
+	            <a href="/jaju/saleboard/saleboardList?pg=1&sortinSelect=sale_date">판매게시글</a>
 	          </li>
 	          <li class="best-product-category">
 	            <a href="#">인기매물</a>
 	          </li>
 	          <li class="cheap-product-category">
-	            <a href="#">자유게시판</a>
+	            <a href="/jaju/freeboard/freeboardList?pg=1">자유게시판</a>
 	          </li>
 	          
 	        </ul><%--mainnav --%>
