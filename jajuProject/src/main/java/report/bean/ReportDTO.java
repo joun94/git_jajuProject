@@ -8,11 +8,11 @@ import lombok.Data;
 
 @Data
 public class ReportDTO {
+	private String sale_subject; //신고글 제목 -> SaleDTO 에서 가져오는 제목
 	private int sale_seq; //신고 글번호
 	private String sale_id; //신고 아이디
 	private int report_seq; //글번호
 	private String report_id; //아이디
-	private String report_name; //이름
 	private String reportType; //신고 유형
 	private String report_tal; //전화번호
 	private String report_subject; //신고 제목

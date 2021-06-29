@@ -54,7 +54,7 @@ public class InquireController {
 		
 		int i = 0;
 		for(MultipartFile img: list) {
-			filePath = "D:\\spring\\workspace\\jajuProject\\src\\main\\webapp\\storage";
+			filePath = "D:\\git_home\\git_jajuProject\\jajuProject\\src\\main\\webapp\\storage";
 			fileName = img.getOriginalFilename();
 			file = new File(filePath,fileName);
 			
@@ -174,7 +174,7 @@ public class InquireController {
 		else {
 			if(imgMap.get("img1").getOriginalFilename() != "") {
 				
-					filePath = "D:\\spring\\workspace\\jajuProject\\src\\main\\webapp\\storage";
+					filePath = "D:\\git_home\\git_jajuProject\\jajuProject\\src\\main\\webapp\\storage";
 					fileName = imgMap.get("img1").getOriginalFilename();
 					file = new File(filePath,fileName);
 					
@@ -193,7 +193,7 @@ public class InquireController {
 		else {
 			if(imgMap.get("img2").getOriginalFilename() != "") {
 				
-					filePath = "D:\\spring\\workspace\\jajuProject\\src\\main\\webapp\\storage";
+					filePath = "D:\\git_home\\git_jajuProject\\jajuProject\\src\\main\\webapp\\storage";
 					fileName = imgMap.get("img2").getOriginalFilename();
 					file = new File(filePath,fileName);
 					
@@ -212,7 +212,7 @@ public class InquireController {
 		else {
 			if(imgMap.get("img3").getOriginalFilename() != "") {
 			
-					filePath = "D:\\spring\\workspace\\jajuProject\\src\\main\\webapp\\storage";
+					filePath = "D:\\git_home\\git_jajuProject\\jajuProject\\src\\main\\webapp\\storage";
 					fileName = imgMap.get("img3").getOriginalFilename();
 					file = new File(filePath,fileName);
 					
@@ -229,7 +229,7 @@ public class InquireController {
 		
 //		int i = 0;
 //		for(MultipartFile img: list) {
-//			filePath = "D:\\spring\\workspace\\jajuProject\\src\\main\\webapp\\storage";
+//			filePath = "D:\git_home\git_jajuProject\jajuProject\src\main\webapp\storage";
 //			fileName = img.getOriginalFilename();
 //			file = new File(filePath,fileName);
 //			

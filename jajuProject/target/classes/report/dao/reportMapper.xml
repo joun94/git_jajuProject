@@ -68,7 +68,7 @@
  	
  	<!-- 한 사람글  -->
  	<select id="getReport" parameterType="int" resultType="report">
- 		select * from memberreport where report_seq=#{report_seq}
+ 		select * from memberreport join sale_board using(sale_seq) where report_seq=#{report_seq}
  	</select>
  	
 	 <!-- 글삭제 -->

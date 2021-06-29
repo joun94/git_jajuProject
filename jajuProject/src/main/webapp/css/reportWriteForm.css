@@ -13,6 +13,9 @@
     min-width: 1050px;
     padding-bottom: 120px;
 }
+a{
+	/* font-size: 18px; */
+}
 #header, #container, #content {
     position: relative;
 }
@@ -43,13 +46,6 @@ html {
 .page_aticle {
     width: 1050px;
     margin: 0 auto;
-}
-.page_aticle.aticle_type2:after {
-    content: "";
-    display: block;
-    overflow: hidden;
-    width: 100%;
-    clear: both;
 }
 .page_aticle.aticle_type2 .page_section {
     float: right;
@@ -273,8 +269,6 @@ style {
 }
 textarea {
     overflow: auto;
-}
-textarea {
     -webkit-writing-mode: horizontal-tb !important;
     text-rendering: auto;
     word-spacing: normal;
@@ -337,5 +331,15 @@ input[type="submit" i] {
     white-space: pre;
     align-items: flex-start;
 }
-
-
+.page_section section_qna{
+	float: left;
+	size: 500;
+}
+.page_section.section_qna {
+    width: 800px;
+    float: left;
+    margin-left: 30px;
+}
+input.linebg, input.line{
+    display: inline-block;
+}

@@ -42,7 +42,7 @@ public class NoticeController {
 							 @RequestParam ("img[]") List<MultipartFile> list) { //img[] 배열이라고 알려준다, 파일이 여러개가 가능) {
 
 
-		String filePath = "D:\\Spring\\workspace\\jajuProject\\src\\main\\webapp\\storage";
+		String filePath = "D:\\git_home\\git_jajuProject\\jajuProject\\src\\main\\webapp\\storage";
 		String fileName;
 		File file;
 

@@ -9,6 +9,13 @@
 *{
 	font-family: 'S-CoreDream-4Regular';
 }
+a:link{
+	color: #333;
+	text-decoration: none;
+}
+.xans-board-listheader th{
+	boader-bottom: 1px solid #e6e6e6;
+}
 .prevPaging{
 	background-image: url(/jaju/jajuImage/icon-pagination-prev.webp);
 }
@@ -51,6 +58,9 @@
     line-height: 34px;
     margin-top: 20px;
     font-size: 12px;
+}
+a:link{
+	color: #333;
 }
 #content {
     min-width: 1050px;
@@ -131,6 +141,14 @@ html, body {
 	font-size: 14px;
     line-height: 140%;
 }
+.reportListTable td{
+	border-bottom: 1px solid #e6e6e6;
+}
+.xans-board-listheader th, .reportListTable td {
+    padding: 20px 0;
+    vertical-align: middle;
+    font-size: 14px;
+}
 table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -150,14 +168,6 @@ tr {
     display: table-row;
     vertical-align: inherit;
     border-color: inherit;
-}
-.xans-board-listheader th, .reportListTable td {
-    padding: 20px 0;
-    vertical-align: middle;
-    font-size: 14px;
-}
-.reportListTable td{
-	border-bottom: 1px solid #e6e6e6;
 }
 
 th[Attributes Style] {

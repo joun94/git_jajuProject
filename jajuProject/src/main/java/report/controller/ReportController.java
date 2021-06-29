@@ -60,7 +60,7 @@ public class ReportController {
 							 HttpSession session) { //img[] 배열이라고 알려준다, 파일이 여러개가 가능) {
 
 
-		String filePath = "D:\\Spring\\workspace\\jajuProject\\src\\main\\webapp\\storage";
+		String filePath = "D:\\git_home\\git_jajuProject\\jajuProject\\src\\main\\webapp\\storage";
 		String fileName;
 		File file;
 
@@ -193,7 +193,7 @@ public class ReportController {
 			
 		if(imgMap.get("img1").getOriginalFilename() != "") {
 		
-			filePath = "D:\\spring\\workspace\\jajuProject\\src\\main\\webapp\\storage";
+			filePath = "D:\\git_home\\git_jajuProject\\jajuProject\\src\\main\\webapp\\storage";
 			fileName = imgMap.get("img1").getOriginalFilename();
 			file = new File(filePath,fileName);
 			
@@ -212,7 +212,7 @@ public class ReportController {
 			
 		if(imgMap.get("img2").getOriginalFilename() != "") {
 		
-			filePath = "D:\\spring\\workspace\\jajuProject\\src\\main\\webapp\\storage";
+			filePath = "D:\\git_home\\git_jajuProject\\jajuProject\\src\\main\\webapp\\storage";
 			fileName = imgMap.get("img2").getOriginalFilename();
 			file = new File(filePath,fileName);
 			
@@ -232,7 +232,7 @@ public class ReportController {
 			
 		if(imgMap.get("img3").getOriginalFilename() != "") {
 		
-			filePath = "D:\\spring\\workspace\\jajuProject\\src\\main\\webapp\\storage";
+			filePath = "D:\\git_home\\git_jajuProject\\jajuProject\\src\\main\\webapp\\storage";
 			fileName = imgMap.get("img3").getOriginalFilename();
 			file = new File(filePath,fileName);
 			
