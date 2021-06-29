@@ -112,11 +112,11 @@
 				</li>
 
 				<li class="new-product-category">
-					<a	href="/jaju/saleboard/saleboardList?pg=1">판매게시글</a></li>
+					<a	href="/jaju/saleboard/saleboardList?pg=1&sortinSelect=sale_date">판매게시글</a></li>
 				<li class="best-product-category  header_a_li">
 					<a href="#"	class="button">인기매물</a></li>
 				<li class="cheap-product-category  header_a_li">
-					<a href="#"	class="button">자유게시판</a></li>
+					<a href="/jaju/freeboard/freeboardList?pg=1"	class="button">자유게시판</a></li>
 
 			</ul>
 			<%--mainnav --%>
@@ -173,7 +173,8 @@
 		});
 	
 		$('#all_category_item>li').click(function(){
-			alert("hover 중 한개 선택 했음 그 값은?"+ $(this).children('a').attr('class'));
+			//alert("hover 중 한개 선택 했음 그 값은?"+ $(this).children('a').attr('class'));
+			location.href = '/jaju/saleboard/saleboardListCategory?pg=1&sortinSelect=sale_date&sale_category=' + $(this).children('a').attr('class');
 		});
 		
 		//header 상단에 고정 시키기
