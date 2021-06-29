@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="/jaju/manager_css/managerService.css" />
 </head>
 <body>
+
 <div style="width: 1080px; margin: auto;">
 <jsp:include page="/manager/managerMenu.jsp"/>
 <div id="content" class="cont_post post_spam">
