@@ -1,10 +1,12 @@
 @charset "UTF-8";
 
 @font-face {
-     font-family: 'S-CoreDream-4Regular';
-     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff') format('woff');
-     font-weight: normal;
-     font-style: normal;
+	font-family: 'S-CoreDream-4Regular';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
 }
 
 body {
@@ -16,23 +18,25 @@ body {
 	height: 560px;
 	display: block;
 	margin: 0px auto;
-	
 }
-#populerSpan{
+
+#populerSpan {
 	align-items: center;
 	align-content: center;
 	color: black;
 	font-size: 18pt;
 	width: 200px;
-	
 }
+
 h2 {
-    text-align: center;
+	text-align: center;
 }
+
 div, th, td, li, dt, dd, p {
-    word-break: break-all;
+	word-break: break-all;
 }
-#populerDiv img{
+
+#populerDiv img {
 	padding: 10px;
 	width: 249px;
 	height: 320px;
@@ -40,51 +44,196 @@ div, th, td, li, dt, dd, p {
 
 /*최근매물*/
 .list_goods .thumb_goods .thumb {
-    display: block;
-    margin: 0 auto;
-    background-position: 50% 50%;
-    background-size: cover;
-    transform: scale(1);
-    transition: all 0.3s ease-in-out;
+	display: block;
+	margin: 0 auto;
+	background-position: 50% 50%;
+	background-size: cover;
+	transform: scale(1);
+	transition: all 0.3s ease-in-out;
 }
+
 .list_goods .thumb {
-    width: 249px;
-    height: 320px;
+	width: 249px;
+	height: 320px;
 }
+
 .list_goods a {
-    cursor: pointer;
+	cursor: pointer;
 }
 
 /*추천상품*/
-	.bx-controls-direction {
-	    position: relative;
-	    width: 1080px;
-	    margin: 0 auto;
-    }
-    
-    .bx-controls-direction .bx-prev {
-	    left: -50px;
-	    background: url(https://res.kurly.com/pc/service/main/1908/btn_prev_default.png?v=1) no-repeat 50% 50%;
-	    transition: background 0.5s;
-	}
-	
-	.bx-controls-direction .bx-next {
-	    right: -20px;
-	    background: url(https://res.kurly.com/pc/service/main/1908/btn_next_gray_x1.png?v=1) no-repeat 50% 50%;
-	    transition: background 0.5s;
-	}
-	
-	.bx-controls-direction .bx-next, .bx-controls-direction .bx-prev {
-	    overflow: hidden;
-	    position: absolute;
-	    bottom: 290px;
-	    width: 60px;
-	    height: 60px;
-	    border: 0 none;
-	    font-size: 0;
-	    line-height: 0;
-	    text-indent: -9999px;
-	    transition: opacity 0.5s;
-	}
-	
-	
+.bx-controls-direction {
+	position: relative;
+	width: 1080px;
+	margin: 0 auto;
+}
+
+.bx-controls-direction .bx-prev {
+	left: -50px;
+	background:
+		url(https://res.kurly.com/pc/service/main/1908/btn_prev_default.png?v=1)
+		no-repeat 50% 50%;
+	transition: background 0.5s;
+}
+
+.bx-controls-direction .bx-next {
+	right: -20px;
+	background:
+		url(https://res.kurly.com/pc/service/main/1908/btn_next_gray_x1.png?v=1)
+		no-repeat 50% 50%;
+	transition: background 0.5s;
+}
+
+.bx-controls-direction .bx-next, .bx-controls-direction .bx-prev {
+	overflow: hidden;
+	position: absolute;
+	bottom: 290px;
+	width: 60px;
+	height: 60px;
+	border: 0 none;
+	font-size: 0;
+	line-height: 0;
+	text-indent: -9999px;
+	transition: opacity 0.5s;
+}
+/*--------------------------------------------*/
+.highlight {
+	display: inline-block;
+	color: #343434;
+	transition: color 250ms, text-shadow 250ms;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px rgba(255, 255, 255, 1);
+	position: relative;
+	z-index: 0;
+}
+
+.highlight::after {
+	position: absolute;
+	z-index: -1;
+	bottom: -5px;
+	left: 50%;
+	transform: translateX(-50%);
+	content: '';
+	width: 100%;
+	height: 3px;
+	background-color: #343434;
+	transition: all 250ms;
+}
+
+.highlight:hover {
+	color: white;
+	text-shadow: 0px 1px 0px rgba(0, 0, 0, 1);
+}
+
+.highlight::after {
+	height: 105%;
+	width: 105%;
+}
+/*------------- 슬라이드 --------------*/
+ul, li {
+	list-style: none;
+}
+
+.slide {
+	height: 300px;
+	overflow: hidden;
+	position: relative;
+}
+
+.slide li {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	opacity: 0;
+	transition: 1s;
+}
+
+.slide li:nth-child(1) {
+	background: #ffa;
+}
+
+.slide li:nth-child(2) {
+	background: #faa;
+}
+
+.slide li:nth-child(3) {
+	background: #afa;
+}
+
+.slide li:nth-child(4) {
+	background: #aaf;
+}
+
+.slide input {
+	display: none;
+}
+
+.slide .bullet {
+	position: absolute;
+	bottom: 20px;
+	left: 0;
+	right: 0;
+	text-align: center;
+	z-index: 10;
+}
+
+.slide .bullet label {
+	width: 10px;
+	height: 10px;
+	border-radius: 10px;
+	border: 2px solid #666;
+	display: inline-block;
+	background: #fff;
+	font-size: 0;
+	transition: 0.5s;
+	cursor: pointer;
+}
+/* 슬라이드 조작 */
+#pos1:checked ~ ul li:nth-child(1), #pos2:checked ~ ul li:nth-child(2),
+	#pos3:checked ~ ul li:nth-child(3), #pos4:checked ~ ul li:nth-child(4)
+	{
+	opacity: 1;
+}
+/* bullet 조작 */
+#pos1:checked ~ .bullet label:nth-child(1), #pos2:checked ~ .bullet label:nth-child(2),
+	#pos3:checked ~ .bullet label:nth-child(3), #pos4:checked ~ .bullet label:nth-child(4)
+	{
+	background: #666;
+}
+/*-------------여기는 사진 붙인 곳(4개짜리)-,만원의행복,-----------*/
+.image-hover {
+  display: block;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center center;
+  transition: background-size 0.3s ease-in-out;
+}
+
+.image-hover:hover {
+  background-size: 102%;
+}
+.must-have-product-image {
+  height: 320px;
+  /*background-image: url(/jaju/used_product/hat.jpg);*/
+  position: relative;
+}
+.must-items{
+	display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.must-items li{
+    margin: 30px 14px;
+}
+.product-box {
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
+}
+
+
+/*슬라이드 테스트 */

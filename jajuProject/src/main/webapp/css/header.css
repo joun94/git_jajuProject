@@ -68,7 +68,6 @@ button {
 
 .image-hover {
 	display: block;
-	width: 100%;
 	background-repeat: no-repeat;
 	background-size: 100%;
 	background-position: center center;
@@ -175,13 +174,37 @@ button {
 .header {
 	width: 100%;
 	padding-top: 8px;
+	margin: 10px 10px;
 	text-align: center;
 }
 
 .header_bar {
-	display: flex;
+    width: 100%;
+    margin: 0 auto;
+	/*display: flex;
 	justify-content: space-between;
-	text-align: center;
+	text-align: center;*/
+}
+
+.member_items li{
+    position: relative;
+    z-index: 400;
+    float: left;
+}
+.menuDiv {
+	padding-top: 8px;
+	position: fixed;
+	width: 100%;
+	left: 0;
+	background-color: #fff;
+	left: 0;
+	z-index: 10;
+}
+
+div.menuDiv.fix {
+	position: fixed;
+	top: 0;
+	background: white;
 }
 
 .carrot_image {
@@ -195,9 +218,10 @@ button {
 }
 
 .member_items {
-	margin-right: 20px;
-	display: flex;
-	font-size: 15px;
+
+	/*display: flex;*/
+	font-size: 13px;
+	float: right;
 }
 
 .sign_up_item, .sign_up_item, .map_item {
@@ -209,6 +233,7 @@ button {
 	display: flex;
 	padding-left: 0px;
 	position: relative;
+	width: 100px;
 	height: 25px;
 }
 
@@ -229,10 +254,19 @@ button {
 	top: 25px;
 	right: 7px;
 	z-index: 50;
-	visibility: hidden; /*hidden 제쿼리로 보이게바꾸기?*/
+	display: none; /*hidden 제쿼리로 보이게바꾸기?*/
 }
 
-.service_center_detail li {
+.service_center_detail:hover {
+	display: block;
+	border: 1px solid #ddd;
+	background-color: #fff;
+	position: absolute;
+	z-index: 50;
+	/* display: none; 이거 hover 시 보이도록 */
+}
+
+.service_center_detail>li {
 	margin-bottom: 8px;
 }
 
@@ -240,18 +274,50 @@ button {
 	margin-bottom: 0;
 }
 
+.service_center_detail>li:hover {
+	background-color: #eaf5ff;
+}
+
+.service_center_detail>li>a {
+	font-size: 13px;
+}
+
+.service_center_detail>li>a:hover {
+	font-weight: 500;
+	color: #064acb;
+	text-decoration: none;
+}
+
 .show {
 	visibility: hidden;
 }
-
-.logo_image {
+.logo{
+	position: absolute;
+    left: 50%;
+    bottom: 6px;
+    width: 200px;
+    height: 79px;
+    margin-left: -100px;
+}
+/* .logo_image {
 	margin: -60px auto auto;
 	align-content: center;
+} */
+.logo_image {
+    position: sticky;
+    width: 1050px;
+    height: 80px;
+    margin: 0 auto;
 }
-
-.logo_image img {
+/* .logo_image img {
 	width: 200px;
-	height: 150px;
+	height: 110px;
+} */
+.logo_image img {
+    display: block;
+    width: 220px;
+    height: 120px;
+    margin: 0 auto;
 }
 
 .mobile-menu {
@@ -271,22 +337,23 @@ button {
 	display: none;
 }
 
-.menu {/*--수정중--*/
-/* 	width: 60%;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	margin-right: 72px;
-	position: relative; */
-	width: 50%;
+.menu { /*--수정중--*/
+
+	margin-top: 8px;
 	display: -webkit-inline-box;
 	justify-content: space-between;
-	float:left;
+	margin-left: -50px;
+
 }
 
-.menu>li>a {
+.menu li>a {
 	border-bottom: 1px solid transparent;
 	padding: 0 20px;
+	font-size: 15px;
+	/*ㅇㅕ기 추가 했음*/
+	display: block;
+	transition: all 0.3s;
+	text-decoration: none
 }
 
 .menu>li>a:hover {
@@ -294,7 +361,16 @@ button {
 	border-bottom-color: #064acb;
 	text-decoration: none;
 }
-
+/*.menu:after {
+    content: "";
+    position: absolute;
+    z-index: 299;
+    left: 0;
+    top: 56px;
+    width: 100%;
+    height: 9px;
+    background: url(https://res.kurly.com/pc/service/common/1902/bg_1x9.png) repeat-x 0 100%;
+} */
 .all_category a:hover {
 	border-bottom: none;
 }
@@ -313,18 +389,16 @@ button {
 	border: 1px solid #ddd;
 	background-color: #fff;
 	position: absolute;
-	top: 170px;
-	left: 30px;
-	z-index: 50;
+	top: 55px;
 	display: none; /*이거 hover 시 보이도록*/
 }
 
 .all_category_item:hover {
+	display: block;
 	border: 1px solid #ddd;
 	background-color: #fff;
 	position: absolute;
-	top: 41px;
-	z-index: 50;
+	/*z-index: 50;*/
 	/* display: none; 이거 hover 시 보이도록 */
 }
 
@@ -343,8 +417,9 @@ button {
 	align-items: center;
 	width: 100%;
 	height: 25px;
-	padding-left: 50px;
+	font-size: 14px; padding-left : 50px;
 	cursor: pointer;
+	padding-left: 50px;
 }
 
 .all_category_item>li>a:hover {
@@ -366,6 +441,12 @@ button {
 	padding: 5px;
 }
 
+.new-product-category a:hover {
+	color: #064acb;
+	border-bottom-color: #064acb;
+	text-decoration: none;
+}
+
 .sub_recommend_image {
 	width: 110px;
 }
@@ -375,7 +456,7 @@ button {
 }
 
 /* 전체카테고리 메뉴 아이콘 넣기~ */
-.digital {
+/* .digital {
 	background: url("/jaju/jajuImage/appliance.png") no-repeat 50% 50%;
 	background-position: 15px 0px;
 	background-size: 25px 25px;
@@ -385,8 +466,7 @@ button {
 	background: url() no-repeat 50% 50%;
 	background-position: 15px 0;
 	background-size: 25px 25px;
-}
-
+} */
 .life {
 	background: url() no-repeat 50% 50%;
 	background-position: 15px 0px;
@@ -569,8 +649,24 @@ button {
 
 /* 검색 */
 .sub_menu {
-	width: 25%;
-	margin-top: -10px;
+	width: 50%;
+	display: flex;
+	margin-right:15px;
+	justify-content: space-around;
+	align-items: center;
+	font-size: 18px;
+	margin-right: 20px;
+}
+
+.sub_menu {
+		width: 40%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	font-size: 18px;
+	margin-right: 20px;
+	margin-bottom: 5px;
+	margin-right: 20px;
 	float: right;
 	display: flex;
 	justify-content: center;
