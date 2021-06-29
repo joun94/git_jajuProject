@@ -24,6 +24,7 @@
 </head>
 <body> <!-- Add your content of header -->
 
+
 	<div align="center" id="indexHeader">
 		<jsp:include page="/main/header.jsp" />
 	</div>
