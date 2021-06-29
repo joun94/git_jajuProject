@@ -112,13 +112,9 @@
 				<div class="bundle_set">
 					<button type="button" class="btn_admin btn_type2" id="btnWithdraw">
 						<span class="ico_admin ico_caution"></span>
-						<span class="txt_btn" id="delete_member_id">강제탈퇴</span>
+						<span class="txt_btn" id="again_member_id">탈퇴 철회</span>
 					</button>
-			
-					<button type="button" class="btn_admin btn_type2" id="btnDeactivate">
-						<span class="ico_admin ico_caution"></span>
-						<span class="txt_btn" id="break_member_id">활동중지</span>
-					</button>
+
 				</div>
 			</div>
 			

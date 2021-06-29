@@ -15,6 +15,7 @@
 	<context:component-scan base-package="saleboard.*"/>
 	<context:component-scan base-package="reviewboard.*"/>
 	<context:component-scan base-package="mypage.*"/>
+	<context:component-scan base-package="manager.*"/>
 	
 	<context:component-scan base-package="spring.conf" />
 </beans>

@@ -68,4 +68,5 @@
 	<context:component-scan base-package="saleboard.controller" />
 	<context:component-scan base-package="reviewboard.controller" />
 	<context:component-scan base-package="mypage.controller"/>
+	<context:component-scan base-package="manager.controller"/>
 </beans:beans>
