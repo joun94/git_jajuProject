@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import mypage.bean.MessageDTO;
 import saleboard.bean.SaleboardCommentDTO;
 import saleboard.bean.SaleboardDTO;
 
@@ -155,23 +154,71 @@ public class SaleboardDAOMybatis implements SaleboardDAO {
 	}
 
 	@Override
-	public void saleStateModify(Map<String,String> map) {
-		sqlSession.update("saleboardSQL.saleStateModify", map);
-	}
-	/*-----*/
-
-	@Override
-	public List<MessageDTO> salebuyerFindMessage(int sale_seq) {
-		return sqlSession.selectList("saleboardSQL.salebuyerFindMessage", sale_seq);	
+	public List<SaleboardDTO> getSaleboardListCategory(Map<String, String> map) {
+		return sqlSession.selectList("saleboardSQL.getSaleboardListCategory", map);
 	}
 
 	@Override
-	public List<SaleboardCommentDTO> salebuyerFindComment(int sale_seq) {
-		return sqlSession.selectList("saleboardSQL.salebuyerFindComment", sale_seq);
+	public int getTotalCategory(String sale_category) {
+		return sqlSession.selectOne("saleboardSQL.getTotalCategory", sale_category);
 	}
 
 	@Override
-	public void salebuyerConfirmation(Map<String, String> map) {
-		sqlSession.update("saleboardSQL.salebuyerConfirmation", map);	
+	public List<SaleboardDTO> getSaleboardListLoginCategory(Map<String, String> map) {
+		return sqlSession.selectList("saleboardSQL.getSaleboardListLoginCategory", map);
 	}
+
+	@Override
+	public int getTotalLoginCategory(Map<String, String> map) {
+		int a =0;
+		int b =0;
+		int c =0;
+		if(!map.get("location1").equals("")) {
+			a = sqlSession.selectOne("saleboardSQL.getTotalLoginCategory1", map);
+		}
+		if(!map.get("location2").equals("")) {
+			b = sqlSession.selectOne("saleboardSQL.getTotalLoginCategory2", map);
+		}
+		if(!map.get("location3").equals("")) {
+			c = sqlSession.selectOne("saleboardSQL.getTotalLoginCategory3", map);
+		}
+		
+		return a+b+c;
+	}
+
+	@Override
+	public List<SaleboardDTO> getSearchSaleboardListCategory(Map<String, String> map) {
+		return sqlSession.selectList("saleboardSQL.getSearchSaleboardListCategory", map);
+	}
+
+	@Override
+	public int getSearchTotalCategory(Map<String, String> map) {
+		return sqlSession.selectOne("saleboardSQL.getSearchTotalCategory", map);
+	}
+
+	@Override
+	public List<SaleboardDTO> getSearchSaleboardListLoginCategory(Map<String, String> map) {
+		return sqlSession.selectList("saleboardSQL.getSearchSaleboardListLoginCategory", map);
+	}
+
+	@Override
+	public int getSearchTotalLoginCategory(Map<String, String> map) {
+		int a =0;
+		int b =0;
+		int c =0;
+		if(!map.get("location1").equals("")) {
+			a = sqlSession.selectOne("saleboardSQL.getSearchTotalLoginCategory1", map);
+		}
+		if(!map.get("location2").equals("")) {
+			b = sqlSession.selectOne("saleboardSQL.getSearchTotalLoginCategory2", map);
+		}
+		if(!map.get("location3").equals("")) {
+			c = sqlSession.selectOne("saleboardSQL.getSearchTotalLoginCategory3", map);
+		}
+		
+		return a+b+c;
+	}
+
+
+
 }

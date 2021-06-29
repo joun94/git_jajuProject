@@ -151,7 +151,7 @@ $('#saleboardModifyBtn').click(function(){
 		data: formData,
 		success: function(data) {
 			alert("게시글수정 완료");
-			location.href='/jaju/saleboard/saleboardList';
+			location.href='/jaju/saleboard/saleboardList?pg=1&sortinSelect=sale_date';
 		},
 		error: function(err){
 			console.log(err);

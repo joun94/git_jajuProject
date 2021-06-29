@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="/jaju/css/saleboardList.css" />
+<link rel="stylesheet" href="/jaju/css/saleboardListCategory.css" />
 </head>
 <body>
 
@@ -20,24 +20,7 @@
 				<option value="sale_price">높은가격순</option>
 			</select> 
 			
-			<select id="selectBox" class="selectBox">
-				<option value="*">전체</option>
-				<option value="digital">디지털/가전</option>
-				<option value="life">생활</option>
-				<option value="instant_food">가공식품</option>
-				<option value="women_cloth">여성의류</option>
-				<option value="beauty">뷰티 / 미용</option>
-				<option value="furniture">가구 / 인테리어</option>
-				<option value="sport">스포츠 / 레저</option>
-				<option value="men_choth">남성 / 패션잡화</option>
-				<option value="dogCat">반려동물용품</option>
-				<option value="kids">유아동 / 유아도서</option>
-				<option value="womenAcc">여성잡화</option>
-				<option value="game">게임 / 취미</option>
-				<option value="kitchen">주방용품</option>
-				<option value="book">도서 / 티켓 / 음반</option>
-				<option value="else">기타 중고물품</option>
-			</select> 
+			
 			<input type="text" name="searchText" id="searchText" value="" required="">
 			<input type="image" src="/jaju/image/search.webp" align="absmiddle" width="30" height="30" id="searchBtn">
 		</div>
@@ -68,13 +51,14 @@
       </div>
 	</div>
 </div>
-<input type="hidden" id="pg" value="${param.pg }">
-<input type="hidden" id="searchPg" value="1">
-<input type="hidden" id="memId" value="${sessionScope.memId }">
-<input type="hidden" id="sortinSelected" value="${param.sortinSelect }">
+<input type="hidden" id="pg" value="${param.pg }"/>
+<input type="hidden" id="searchPg" value="1"/>
+<input type="hidden" id="memId" value="${sessionScope.memId }"/>
+<input type="hidden" id="sortinSelected" value="${param.sortinSelect }"/>
+<input type="hidden" id="sale_category" value="${param.sale_category}"/>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="/jaju/js/saleboardList.js"></script>
+<script src="/jaju/js/saleboardListCategory.js"></script>
 <script type="text/javascript" >
 $('.item').click(function(){
 	location='/jaju/saleboard/saleboardView';
@@ -83,7 +67,7 @@ function saleboardPaging(pg){
 	var searchText = document.getElementById('searchText').value;
 	
 	if(searchText == ''){
-		location.href = '/jaju/saleboard/saleboardList?pg='+pg+'&sortinSelect='+$('#sortinSelect').val();
+		location.href = '/jaju/saleboard/saleboardListCategory?pg='+pg+'&sortinSelect='+$('#sortinSelect').val()+'&sale_category='+ $('#sale_category').val();
 		//$('#sortinSelect').trigger('change');		
 	} else{
 		
