@@ -22,7 +22,7 @@ bin/
 *.ipr
 *.iws
 atlassian-ide-plugin.xml
-
+*.MF
 # Maven files
 target/
 
