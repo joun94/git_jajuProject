@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import mypage.bean.MessageDTO;
 import saleboard.bean.SaleboardCommentDTO;
 import saleboard.bean.SaleboardCommentPaging;
 import saleboard.bean.SaleboardDTO;
@@ -481,5 +482,24 @@ public class SaleboardServiceImpl implements SaleboardService {
 		
 		return saleboardPaging;
 	}
+	@Override
+	public void saleStateModify(Map<String,String> map)  {
+		saleboardDAO.saleStateModify(map);
+	}
+	/*-----*/
+	@Override
+	public List<MessageDTO> salebuyerFindMessage(int sale_seq) {
+		return saleboardDAO.salebuyerFindMessage(sale_seq);
+	}
 
+	@Override
+	public List<SaleboardCommentDTO> salebuyerFindComment(int sale_seq) {
+		return saleboardDAO.salebuyerFindComment(sale_seq);
+	}
+
+	@Override
+	public void salebuyerConfirmation(Map<String, String> map) {
+		saleboardDAO.salebuyerConfirmation(map);
+		
+	}
 }

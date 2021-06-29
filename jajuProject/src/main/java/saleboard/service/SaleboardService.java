@@ -3,6 +3,7 @@ package saleboard.service;
 import java.util.List;
 import java.util.Map;
 
+import mypage.bean.MessageDTO;
 import saleboard.bean.SaleboardCommentDTO;
 import saleboard.bean.SaleboardCommentPaging;
 import saleboard.bean.SaleboardDTO;
@@ -66,4 +67,11 @@ public interface SaleboardService {
 
 	public SaleboardPaging searchSaleboardPagingLoginCategory(Map<String, String> map);
 	
+	public void saleStateModify(Map<String, String> map);
+
+	public List<MessageDTO> salebuyerFindMessage(int sale_seq);
+
+	public List<SaleboardCommentDTO> salebuyerFindComment(int sale_seq);
+
+	public void salebuyerConfirmation(Map<String, String> map);
 }

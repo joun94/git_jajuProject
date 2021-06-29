@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import mypage.bean.MessageDTO;
 import saleboard.bean.SaleboardCommentDTO;
 import saleboard.bean.SaleboardDTO;
 
@@ -219,6 +220,25 @@ public class SaleboardDAOMybatis implements SaleboardDAO {
 		return a+b+c;
 	}
 
+	@Override
+	public void saleStateModify(Map<String,String> map) {
+		sqlSession.update("saleboardSQL.saleStateModify", map);
+	}
+	/*-----*/
 
+	@Override
+	public List<MessageDTO> salebuyerFindMessage(int sale_seq) {
+		return sqlSession.selectList("saleboardSQL.salebuyerFindMessage", sale_seq);	
+	}
+
+	@Override
+	public List<SaleboardCommentDTO> salebuyerFindComment(int sale_seq) {
+		return sqlSession.selectList("saleboardSQL.salebuyerFindComment", sale_seq);
+	}
+
+	@Override
+	public void salebuyerConfirmation(Map<String, String> map) {
+		sqlSession.update("saleboardSQL.salebuyerConfirmation", map);	
+	}
 
 }

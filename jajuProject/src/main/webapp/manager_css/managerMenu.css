@@ -19,13 +19,37 @@
     letter-spacing: -.5px;
 }
 #side{
-	margin-left: 40px;
+	width: 170px;
 	float: left;
 	margin-top: 150px;
 	border-top: 1px solid #d4d7da;
 }
 .wrap_tit{
 	margin-top: 20px;
+}
+
+.select_admin>.img_selectbox, .select_admin>.img_selectbox_press {
+    text-decoration: none;
+    cursor: pointer;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: left;
+}
+.box_search .select_admin>.img_selectbox, .box_search .select_admin>.img_selectbox_press {
+    text-indent: 11px;
+}
+.box_search .select_admin .img_selectbox {
+    background-position: 100% 13px;
+}
+.select_admin .img_selectbox {
+    background: url(//t1.daumcdn.net/cafe_image/cf_img3/admin_2018/arr_open_180116-2.gif) no-repeat 100% 14px;
+}
+.box_search .select_admin .img_selectbox, .box_search .select_admin .img_selectbox_press {
+    width: 100%;
+    height: 32px;
+    line-height: 30px;
+    text-indent: 5px;
+    text-align: left;
 }
 a.link_lnb:hover{
 	text-decoration: underline; 
@@ -168,21 +192,13 @@ a:-webkit-any-link {
 .list_lnb ul li:first-child {
     margin: 0;
 }
-.lnb_admin3 .ico_admin {
-    margin-top: 5px;
-    background-position: -20px 0;
-}
-.lnb_admin4 .ico_admin {
-    margin-top: 5px;
-    background-position: -60px 0;
-}
-.lnb_admin5 .ico_admin {
+.lnb_admin1 .ico_admin {
     margin-top: 4px;
     background-position: -80px 0;
 }
-.lnb_admin6 .ico_admin {
-    margin-top: 3px;
-    background-position: -100px 0;
+.lnb_admin2 .ico_admin {
+    margin-top: 5px;
+    background-position: -60px 0;
 }
 ul{
 	text-align: left;

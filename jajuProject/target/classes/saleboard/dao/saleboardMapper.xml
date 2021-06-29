@@ -384,5 +384,24 @@
 		select count(*) as count from sale_board join jajumember using(member_id) where   member_sigungu = #{location3} and sale_category like #{sale_category} and sale_subject like '%'||#{searchText}||'%'
 	</select>
 	
+	<update id="saleStateModify" parameterType="java.util.Map">
+		update sale_board set sale_state=#{sale_state} where sale_seq=#{sale_seq}
+	</update>
+		
+	<!--message 발신자 목록 불러오기  -->
+	<select id="salebuyerFindMessage" parameterType="int" resultType="java.util.Map" >
+		select message_writer from message where sale_seq=#{sale_seq}
+	</select> 
+	
+	<!--comment 발신자 목록 불러오기  -->
+	<select id="salebuyerFindComment" parameterType="int" resultType="java.util.Map" >
+		select member_id from sale_board_comment where sale_seq=#{sale_seq}
+	</select> 
+	
+	<!--salebuyer값 입력  -->
+	<update id="salebuyerConfirmation" parameterType="java.util.Map" >
+		update sale_board set sale_buyer=#{sale_buyer} where sale_seq=#{sale_seq}
+	</update>
+	
 	
 	</mapper>

@@ -3,6 +3,7 @@ package saleboard.dao;
 import java.util.List;
 import java.util.Map;
 
+import mypage.bean.MessageDTO;
 import saleboard.bean.SaleboardCommentDTO;
 import saleboard.bean.SaleboardDTO;
 
@@ -63,5 +64,13 @@ public interface SaleboardDAO {
 	public List<SaleboardDTO> getSearchSaleboardListLoginCategory(Map<String, String> map);
 
 	public int getSearchTotalLoginCategory(Map<String, String> map);
+	
+	public void saleStateModify(Map<String, String> map);
 
+	public List<MessageDTO> salebuyerFindMessage(int sale_seq);
+
+	public List<SaleboardCommentDTO> salebuyerFindComment(int sale_seq);
+
+	public void salebuyerConfirmation(Map<String, String> map);
+	
 }

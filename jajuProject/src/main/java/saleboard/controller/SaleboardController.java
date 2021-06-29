@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import mypage.bean.MessageDTO;
 import saleboard.bean.SaleboardCommentDTO;
 import saleboard.bean.SaleboardCommentPaging;
 import saleboard.bean.SaleboardDTO;
@@ -451,7 +452,77 @@ public class SaleboardController {
 			return mav;
 		}
 		
+		@RequestMapping(value="saleStateModifyForm", method=RequestMethod.GET)
+		public String saleStateModifyForm(Model model,@RequestParam int sale_seq) {
+			model.addAttribute("sale_seq",sale_seq);
+			return "/saleboard/saleStateModifyForm";
+		}
+
+		@RequestMapping(value="saleStateModify", method=RequestMethod.POST)
+		@ResponseBody
+		public ModelAndView saleStateModify(@RequestParam Map<String,String> map) {
+			System.out.println("saleStateModifyn의 map의 값은? 판매상태, seq 확인 == "+map);
+			ModelAndView mav = new ModelAndView();
+			saleboardService.saleStateModify(map);
+			mav.setViewName("jsonView");
+			return mav;
+		}
+//------- 후철씨 만든 판매상태 수정 -------
+
+		/*		
+		//판매완료시 하단화면hide 현재 화면 show 예정
+		@RequestMapping(value="saleStateModify", method=RequestMethod.GET)
+		public String saleStateModify(Model model ) {
+			
+			model.addAttribute("display","/saleboard/saleStateModify.jsp");
+			return "/index";
+		}*/
 		
+		//구매자버튼 클릭시 메시지 발신자 목록 불러오기
+		@RequestMapping(value = "salebuyerFindMessage", method = RequestMethod.POST)
+		@ResponseBody
+		public ModelAndView salebuyerFindMessage(@RequestParam int sale_seq) {
+			
+			System.out.println("컨트롤러 글번호 받는가"+sale_seq);
+			// db에 저장하기
+			ModelAndView mav = new ModelAndView();
+			
+			List<MessageDTO> list = saleboardService.salebuyerFindMessage(sale_seq);
+		
+			mav.addObject("list", list);
+			mav.setViewName("jsonView");
+			
+			return mav;
+		}
+		
+		//구매자버튼 클릭시 코멘트 작성자 목록 불러오기
+		@RequestMapping(value = "salebuyerFindComment", method = RequestMethod.POST)
+		@ResponseBody
+		public ModelAndView salebuyerFindComment(@RequestParam int sale_seq) {
+			
+			//System.out.println("컨트롤러 글번호 받는가"+sale_seq);
+			// db에 저장하기
+			ModelAndView mav = new ModelAndView();
+			
+			List<SaleboardCommentDTO> list = saleboardService.salebuyerFindComment(sale_seq);
+		
+			mav.addObject("list", list);
+			mav.setViewName("jsonView");
+			
+			return mav;
+		}
+
+		//구매자 확정시 sale_board의 db값 변경
+		@RequestMapping(value = "salebuyerConfirmation", method = RequestMethod.POST)
+		@ResponseBody
+		public void salebuyerConfirmation(@RequestParam Map<String,String> map, @RequestParam int sale_seq, @RequestParam 				String sale_buyer) {
+			
+			map.put("sale_seq", sale_seq+"");
+			map.put("sale_buyer",sale_buyer);
+			System.out.println("컨트롤러 updateMap값"+map);
+			saleboardService.salebuyerConfirmation(map);
+		}
+
 		
 		
 }
