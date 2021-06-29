@@ -13,15 +13,19 @@
 
 /*상단 가로 메뉴*/
 @font-face {
-     font-family: 'S-CoreDream-4Regular';
-     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff') format('woff');
-     font-weight: normal;
-     font-style: normal;
+	font-family: 'S-CoreDream-4Regular';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
 }
-*{
-	 font-family: 'S-CoreDream-4Regular';
-	 -webkit-text-size-adjust: 100%;
+
+* {
+	font-family: 'S-CoreDream-4Regular';
+	-webkit-text-size-adjust: 100%;
 }
+
 html {
 	-ms-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%
@@ -41,11 +45,27 @@ audio, canvas, progress, video {
 	vertical-align: baseline
 }
 
-audio:not ([controls] ){
-	display: none;
-	height: 0
-}
+audio
+:not
+ 
+(
+[
+controls
+]
+ 
+){
+display
+:
+ 
+none
+;
 
+	
+height
+:
+ 
+0
+}
 [hidden], template {
 	display: none
 }
@@ -55,7 +75,8 @@ a {
 }
 
 a:active, a:hover {
-	outline: 0
+	outline: 0;
+	text-decoration: none;
 }
 
 abbr[title] {
@@ -103,10 +124,20 @@ img {
 	border: 0
 }
 
-svg:not (:root ){
-	overflow: hidden
-}
+svg
+:not
+ 
+(
+:root
+ 
+){
+overflow
+:
+ 
+hidden
 
+
+}
 figure {
 	margin: 1em 40px
 }
@@ -121,7 +152,7 @@ pre {
 }
 
 code, kbd, pre, samp {
-	 font-family: 'S-CoreDream-4Regular';
+	font-family: 'S-CoreDream-4Regular';
 	font-size: 1em
 }
 
@@ -196,9 +227,9 @@ table {
 	border-spacing: 0
 }
 
-td, th {
+/* td, th {
 	padding: 0
-}
+} */
 
 /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
 @media print {
@@ -286,12 +317,12 @@ button, input, select, textarea {
 
 a {
 	color: #4457C0;
-	text-decoration: none
+	text-decoration: none;
 }
 
 a:focus, a:hover {
 	color: #1045a4;
-	text-decoration: underline
+	text-decoration: none;
 }
 
 a:focus {
@@ -310,7 +341,6 @@ img {
 .img-responsive {
 	display: block;
 	max-width: 100%;
-	
 	width: 500px;
 	height: 380px;
 }
@@ -369,7 +399,7 @@ hr {
 }
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
-	 font-family: 'S-CoreDream-4Regular';
+	font-family: 'S-CoreDream-4Regular';
 	font-weight: 900;
 	line-height: 1.1;
 	color: #4457C0
@@ -826,7 +856,6 @@ pre code {
 	min-height: 1px;
 	padding-left: 15px;
 	padding-right: 15px;
-
 }
 
 .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6,
@@ -848,7 +877,6 @@ pre code {
 
 .col-xs-4 {
 	width: 33.33333%;
-	
 }
 
 .col-xs-5 {
@@ -1909,7 +1937,7 @@ input[type=search] {
 	.radio-inline input[type=radio], .radio input[type=radio] {
 	position: absolute;
 	margin-left: -20px;
-	margin-top: 4px\9
+	margin-top: 4px\9
 }
 
 .checkbox+.checkbox, .radio+.radio {
@@ -2394,7 +2422,12 @@ a.btn.disabled, fieldset[disabled] a.btn {
 .btn-primary {
 	color: #4457C0;
 	background-color: transparent;
-	border-color: #4457C0
+	transition: box-shadow 0.25s ease-in-out;
+	border-color: #4457C0;
+}
+
+.btn-primary:hover {
+	box-shadow: inset -9em 0 0 0 #4457C0, inset 9em 0 0 0 #257fac;
 }
 
 .btn-primary.focus, .btn-primary:focus {
@@ -2667,6 +2700,10 @@ a.btn.disabled, fieldset[disabled] a.btn {
 	border-radius: 2px
 }
 
+.btn-lg:hover {
+	boder: 1px solid gold;
+}
+
 .btn-group-xs>.btn, .btn-xs {
 	padding: 1px 5px;
 	font-size: 14px;
@@ -2927,26 +2964,91 @@ tbody.collapse.in {
 	margin-left: 5px
 }
 
-.btn-group>.btn:not (:first-child ):not (:last-child ):not (.dropdown-toggle
-	){
-	border-radius: 0
-}
+.btn-group
+>
+.btn
+:not
+ 
+(
+:first-child
+ 
+)
+:not
+ 
+(
+:last-child
+ 
+)
+:not
+ 
+(
+.dropdown-toggle
 
+	
+){
+border-radius
+:
+ 
+0
+}
 .btn-group>.btn:first-child {
 	margin-left: 0
 }
 
-.btn-group>.btn:first-child:not (:last-child ):not (.dropdown-toggle ){
-	border-bottom-right-radius: 0;
-	border-top-right-radius: 0
+.btn-group
+>
+.btn
+:first-child
+:not
+ 
+(
+:last-child
+ 
+)
+:not
+ 
+(
+.dropdown-toggle
+ 
+){
+border-bottom-right-radius
+:
+ 
+0;
+border-top-right-radius
+:
+ 
+0
 }
+.btn-group
+>
+.btn
+:last-child
+:not
+ 
+(
+:first-child
+ 
+),
+.btn-group
+>
+.dropdown-toggle
+:not
 
-.btn-group>.btn:last-child:not (:first-child ), .btn-group>.dropdown-toggle:not
-	(:first-child ){
-	border-bottom-left-radius: 0;
-	border-top-left-radius: 0
+	
+(
+:first-child
+ 
+){
+border-bottom-left-radius
+:
+ 
+0;
+border-top-left-radius
+:
+ 
+0
 }
-
 .btn-group>.btn-group {
 	float: left
 }
@@ -3033,24 +3135,95 @@ tbody.collapse.in {
 	margin-left: 0
 }
 
-.btn-group-vertical>.btn:not (:first-child ):not (:last-child ){
-	border-radius: 0
+.btn-group-vertical
+>
+.btn
+:not
+ 
+(
+:first-child
+ 
+)
+:not
+ 
+(
+:last-child
+ 
+){
+border-radius
+:
+ 
+0
 }
+.btn-group-vertical
+>
+.btn
+:first-child
+:not
+ 
+(
+:last-child
+ 
+){
+border-top-right-radius
+:
+ 
+2
+px
+;
 
-.btn-group-vertical>.btn:first-child:not (:last-child ){
-	border-top-right-radius: 2px;
-	border-top-left-radius: 2px;
-	border-bottom-right-radius: 0;
-	border-bottom-left-radius: 0
+	
+border-top-left-radius
+:
+ 
+2
+px
+;
+
+	
+border-bottom-right-radius
+:
+ 
+0;
+border-bottom-left-radius
+:
+ 
+0
 }
+.btn-group-vertical
+>
+.btn
+:last-child
+:not
+ 
+(
+:first-child
+ 
+){
+border-top-right-radius
+:
+ 
+0;
+border-top-left-radius
+:
+ 
+0;
+border-bottom-right-radius
+:
+ 
+2
+px
+;
 
-.btn-group-vertical>.btn:last-child:not (:first-child ){
-	border-top-right-radius: 0;
-	border-top-left-radius: 0;
-	border-bottom-right-radius: 2px;
-	border-bottom-left-radius: 2px
+	
+border-bottom-left-radius
+:
+ 
+2
+px
+
+
 }
-
 .btn-group-vertical>.btn-group:not (:first-child ):not (:last-child )>.btn
 	{
 	border-radius: 0
@@ -3126,12 +3299,53 @@ tbody.collapse.in {
 	display: table-cell
 }
 
-.input-group-addon:not (:first-child ):not (:last-child ),
-	.input-group-btn:not (:first-child ):not (:last-child ), .input-group .form-control:not
-	(:first-child ):not (:last-child ){
-	border-radius: 0
-}
+.input-group-addon
+:not
+ 
+(
+:first-child
+ 
+)
+:not
+ 
+(
+:last-child
+ 
+),
+.input-group-btn
+:not
+ 
+(
+:first-child
+ 
+)
+:not
+ 
+(
+:last-child
+ 
+),
+.input-group
+ 
+.form-control
+:not
 
+	
+(
+:first-child
+ 
+)
+:not
+ 
+(
+:last-child
+ 
+){
+border-radius
+:
+ 
+0
+}
 .input-group-addon, .input-group-btn {
 	width: 1%;
 	white-space: nowrap;
@@ -3173,7 +3387,7 @@ tbody.collapse.in {
 	.input-group-btn:first-child>.btn-group>.btn, .input-group-btn:first-child>.dropdown-toggle,
 	.input-group-btn:last-child>.btn-group:not (:last-child )>.btn,
 	.input-group-btn:last-child>.btn:not (:last-child ):not (.dropdown-toggle
-	), .input-group .form-control:first-child {
+	 ), .input-group .form-control:first-child {
 	border-bottom-right-radius: 0;
 	border-top-right-radius: 0
 }
@@ -3183,8 +3397,8 @@ tbody.collapse.in {
 }
 
 .input-group-addon:last-child, .input-group-btn:first-child>.btn-group:not
-	(:first-child )>.btn, .input-group-btn:first-child>.btn:not (:first-child
-	), .input-group-btn:last-child>.btn, .input-group-btn:last-child>.btn-group>.btn,
+	 (:first-child )>.btn, .input-group-btn:first-child>.btn:not (:first-child
+	 ), .input-group-btn:last-child>.btn, .input-group-btn:last-child>.btn-group>.btn,
 	.input-group-btn:last-child>.dropdown-toggle, .input-group .form-control:last-child
 	{
 	border-bottom-left-radius: 0;
@@ -4273,18 +4487,20 @@ button.close {
 	border: 0;
 	-webkit-appearance: none
 }
-#carousel-example-generic{
+
+#carousel-example-generic {
 	text-align: center;
 }
+
 .carousel, .carousel-inner {
-/* 	position: relative
+	/* 	position: relative
  */
- align-content: center;
- }
+	align-content: center;
+}
 
 .carousel-inner {
 	overflow: hidden;
-	width: 100%
+	width: 100%;
 }
 
 .carousel-inner>.item {
@@ -4491,7 +4707,6 @@ button.close {
 	text-align: center;
 	text-shadow: 0 1px 2px rgba(0, 0, 0, .6)
 } */
-
 .carousel-caption .btn {
 	text-shadow: none
 }
@@ -4810,7 +5025,9 @@ button.close {
 .section-container {
 	padding: 30px 0
 }
-
+.section-container_info{
+	margin-top: 100px;
+}
 .section-container-spacer {
 	margin-bottom: 30px
 }
@@ -4843,7 +5060,9 @@ button.close {
 
 .background-image-container {
 	text-align: center;
-	background-image: url(/jaju/used_product/wave-hero-background.svg)
+	background-image: url(/jaju/used_product/wave-hero-background.svg);
+	z-index: -10;
+	
 }
 
 .background-image-container, .footer-container {
@@ -5053,9 +5272,20 @@ img.zoom-img {
 }
 
 .card-shadow {
-	box-shadow: 0 2px 2px rgba(0, 0, 0, .1), 0 4px 4px rgba(0, 0, 0, .05), 0
-		8px 8px rgba(0, 0, 0, .05), 0 16px 16px rgba(0, 0, 0, .05), 0 32px
-		32px rgba(0, 0, 0, .05)
+	box-shadow: 
+	0 2px 2px rgba(0, 0, 0, .1), 
+	0 4px 4px rgba(0, 0, 0, .05), 
+	0 8px 8px rgba(0, 0, 0, .05), 
+	0 16px 16px rgba(0, 0, 0, .05), 
+	0 16px 16px rgba(0, 0, 0, .05)
+}
+.card-shadow:hover{
+	box-shadow: 
+	0 2px 2px rgba(0, 0, 0, .5), 
+	0 4px 4px rgba(0, 0, 0, .05), 
+	0 8px 8px rgba(0, 0, 0, .05), 
+	0 16px 16px rgba(0, 0, 0, .05), 
+	0 32px 32px rgba(0, 0, 0, .05)
 }
 
 @media ( max-width :992px) {
@@ -5124,7 +5354,8 @@ label {
 }
 
 .carousel-inner {
-	overflow: inherit
+	overflow: inherit;
+	
 }
 
 .carousel-inner>.item>a>img, .carousel-inner>.item>img {
@@ -5148,12 +5379,15 @@ label {
 	right: inherit;
 	bottom: inherit
 }
-
+/* .carousel-caption:hover{
+	box-shadow: inset 5px 0 0 0 #ddd, inset -5px 0 0 0 #ddd;
+} */
 @media ( min-width :992px) {
 	.carousel-caption {
 		padding: 5rem;
 		margin-top: -5%;
-		margin:10px auto;
+		margin: 10px auto;
+		background-color: #F7F7F7;
 	}
 }
 
@@ -5233,8 +5467,421 @@ label {
 	height: 200px;
 	
 } */
-#please{
+#please {
 	width: 750px;
 	height: 500px;
 }
 /*# sourceMappingURL=main.0cf8b554.map*/
+/*------------- 슬라이드 --------------*/
+ul, li {
+	list-style: none;
+}
+
+.slide_image {
+	height: 300px;
+	overflow: hidden;
+	position: relative;
+}
+
+.slide_image li {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	opacity: 0;
+	transition: 1s;
+}
+
+.slide_image li:nth-child(1) {
+	background: #4457C0;
+}
+
+.slide_image li:nth-child(2) {
+	background: #faa;
+}
+
+.slide_image li:nth-child(3) {
+	background: #afa;
+}
+
+.slide_image li:nth-child(4) {
+	background: #aaf;
+}
+
+.slide_image input {
+	display: none;
+}
+
+.slide_image .bullet {
+	position: absolute;
+	bottom: 20px;
+	left: 0;
+	right: 0;
+	text-align: center;
+	z-index: 10;
+}
+
+.slide_image .bullet label {
+	width: 10px;
+	height: 10px;
+	border-radius: 10px;
+	border: 2px solid #666;
+	display: inline-block;
+	background: #fff;
+	font-size: 0;
+	transition: 0.5s;
+	cursor: pointer;
+}
+/* 슬라이드 조작 */
+#pos1:checked ~ ul li:nth-child(1), #pos2:checked ~ ul li:nth-child(2),
+	#pos3:checked ~ ul li:nth-child(3), #pos4:checked ~ ul li:nth-child(4)
+	{
+	opacity: 1;
+}
+/* bullet 조작 */
+#pos1:checked ~ .bullet label:nth-child(1), #pos2:checked ~ .bullet label:nth-child(2),
+	#pos3:checked ~ .bullet label:nth-child(3), #pos4:checked ~ .bullet label:nth-child(4)
+	{
+	background: #666;
+}
+/* 아래에서 위로 나타나는 애니메이션 */
+@
+keyframes showItem {from { transform:translateY(20px);
+	opacity: 0;
+	color: aqua;
+}
+
+to {
+	transform: translateY(0px);
+	opacity: 1;
+}
+
+}
+.stagger-item{
+	animation: showItem 0.5s;
+	animation-fill-mode: both;
+}
+
+.stagger-item:nth-child(1) {
+	animation-delay: 0.08s;
+}
+
+.stagger-item:nth-child(2) {
+	animation-delay: 0.15s;
+}
+
+.stagger-item:nth-child(3) {
+	animation-delay: 0.22s;
+}
+
+.stagger-item:nth-child(4) {
+	animation-delay: 0.29s;
+}
+
+.stagger-item:nth-child(5) {
+	animation-delay: 0.36s;
+}
+
+
+.section input[id*="slide"] {
+	display: none;
+}
+
+.section .slidewrap {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.section .slidelist {
+	white-space: nowrap;
+	font-size: 0;
+	overflow: hidden;
+	position: relative;
+	background:#F6F6F6;
+}
+
+.section .slidelist>li {
+	display: inline-block;
+	vertical-align: middle;
+	width: 100%;
+	transition: all .5s;
+}
+
+.section .slidelist>li>a {
+	display: block;
+	position: relative;
+}
+
+.section .slidelist>li>a img {
+	width: 100%;
+}
+
+.section .slidelist label {
+	position: absolute;
+	z-index: 10;
+	top: 50%;
+	transform: translateY(-50%);
+	padding: 50px;
+	cursor: pointer;
+}
+
+.section .slidelist .textbox {
+	position: absolute;
+	z-index: 1;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	line-height: 1.6;
+	text-align: center;
+}
+
+.section .slidelist .textbox h3 {
+	font-size: 36px;
+	color: #333;
+	transform: translateY(30px);
+	transition: all .5s;
+
+	
+}
+
+.section .slidelist .textbox p {
+	font-size: 16px;
+	color: #333;
+	opacity: 0;
+	transform: translateY(30px);
+	transition: all .5s;
+}
+
+/* input에 체크되면 슬라이드 효과 */
+.section input[id="slide01"]:checked ~ .slidewrap .slidelist>li {
+	transform: translateX(0%);
+}
+
+.section input[id="slide02"]:checked ~ .slidewrap .slidelist>li {
+	transform: translateX(-100%);
+}
+
+.section input[id="slide03"]:checked ~ .slidewrap .slidelist>li {
+	transform: translateX(-200%);
+}
+
+/* input에 체크되면 텍스트 효과 */
+.section input[id="slide01"]:checked ~ .slidewrap li:nth-child(1) .textbox h3
+	{
+	opacity: 1;
+	transform: translateY(0);
+	transition-delay: .2s;
+}
+
+.section input[id="slide01"]:checked ~ .slidewrap li:nth-child(1) .textbox p
+	{
+	opacity: 1;
+	transform: translateY(0);
+	transition-delay: .4s;
+}
+
+.section input[id="slide02"]:checked ~ .slidewrap li:nth-child(2) .textbox h3
+	{
+	opacity: 1;
+	transform: translateY(0);
+	transition-delay: .2s;
+}
+
+.section input[id="slide02"]:checked ~ .slidewrap li:nth-child(2) .textbox p
+	{
+	opacity: 1;
+	transform: translateY(0);
+	transition-delay: .4s;
+}
+
+.section input[id="slide03"]:checked ~ .slidewrap li:nth-child(3) .textbox h3
+	{
+	opacity: 1;
+	transform: translateY(0);
+	transition-delay: .2s;
+}
+
+.section input[id="slide03"]:checked ~ .slidewrap li:nth-child(3) .textbox p
+	{
+	opacity: 1;
+	transform: translateY(0);
+	transition-delay: .4s;
+}
+
+/* 좌,우 슬라이드 버튼 */
+.slide-control>div {
+	display: none;
+}
+
+.section .left {
+	left: 30px;
+	background: url('/jaju/jajuImage/left.png') center center/100% no-repeat;
+}
+
+.section .right {
+	right: 30px;
+	background: url('/jaju/jajuImage/right.png') center center/100%
+		no-repeat;
+}
+
+.section input[id="slide01"]:checked ~ .slidewrap .slide-control>div:nth-child(1)
+	{
+	display: block;
+}
+
+.section input[id="slide02"]:checked ~ .slidewrap .slide-control>div:nth-child(2)
+	{
+	display: block;
+}
+
+.section input[id="slide03"]:checked ~ .slidewrap .slide-control>div:nth-child(3)
+	{
+	display: block;
+}
+
+/* 페이징 */
+.slide-pagelist {
+	text-align: center;
+	padding: 20px;
+}
+
+.slide-pagelist>li {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.slide-pagelist>li>label {
+	display: block;
+	padding: 8px 30px;
+	border-radius: 30px;
+	background: #ccc;
+	margin: 20px 10px;
+	cursor: pointer;
+}
+
+.section input[id="slide01"]:checked ~ .slidewrap .slide-pagelist>li:nth-child(1)>label
+	{
+	background: #999;
+}
+
+.section input[id="slide02"]:checked ~ .slidewrap .slide-pagelist>li:nth-child(2)>label
+	{
+	background: #999;
+}
+
+.section input[id="slide03"]:checked ~ .slidewrap .slide-pagelist>li:nth-child(3)>label
+	{
+	background: #999;
+}
+
+
+/*-------------여기는 사진 붙인 곳(4개짜리)-,만원의행복,-----------*/
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    height: 100vh;
+    color: #333333;
+    word-break: keep-all;
+}
+.must-have-product {
+    background-color: #f7f7f7;
+}
+.section {
+    width: 100%;
+    padding: 80px 0;
+}
+.container {
+    width: 1100px;
+    margin: 0 auto;
+}
+.must-have-product .title {
+    margin-bottom: 4px;
+}
+.title {
+    margin-bottom: 36px;
+    font-size: 28px;
+    font-weight: 500;
+    text-align: center;
+}
+.must-items a {
+    text-decoration: none;
+    color: black;
+}
+.title-arrow {
+    width: 30px;
+    height: 30px;
+    background-image: url(./assets/title_arrow.webp);
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+}
+.must-have-product-desc {
+    display: block;
+    margin-bottom: 36px;
+    color: #999999;
+    text-align: center;
+}
+.product-slide {
+    width: 100%;
+}
+.product-slide-wrap {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+.product-box {
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+}
+.product-box, .recommend-items, .cheap-items, .md-items, .new-items, .popular-items, .must-items, .offline-items, .recipe-items, .review-items {
+    display: flex;
+}
+ul {
+    list-style: none;
+    padding: 0;
+}
+.must-items li {
+    width: 250px;
+    margin: 0;
+}
+
+.must-have-product-image {
+    height: 320px;
+    /*background-image: url(/jaju/used_product/hat.jpg);*/
+    position: relative;
+}
+.image-hover {
+    display: block;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center center;
+    transition: background-size 0.3s ease-in-out;
+}
+.product-name {
+    margin: 8px 0;
+    font-size: 16px;
+    font-weight: 400;
+}
+.image-hover img{
+	width: 100%;
+	height: 100%;
+}
+
+/*메인 타이핑 효과*/
+#typing {
+   display: inline-block;
+   animation-name: cursor;
+   animation-duration: 0.3s;
+   animation-iteration-count: infinite;
+ }
+@keyframes cursor{
+    0%{border-right: 1px solid #fff}
+    50%{border-right: 1px solid #000}
+    100%{border-right: 1px solid #fff}
+}
+
