@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="managerSQL">
+ 
+<select id="getManagerMember" parameterType="java.util.Map" resultType="member">
+	select * from 
+	(select rownum rn, tt.* from
+	(select * from jajumember order by member_date desc)tt)
+	where rn &gt;=#{startNum} and rn &lt;=#{endNum}
+</select>
+ 
+ </mapper>
